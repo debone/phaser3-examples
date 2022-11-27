@@ -5,14 +5,34 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "name": "Launch Tester",
+            "program": "${file}",
             "request": "launch",
-            "name": "Launch Program",
             "skipFiles": [
                 "<node_internals>/**"
             ],
+            "cwd":"${fileDirname}",
+            "type": "node"
+        },
+        {
+            "name": "Launch Screenshots",
+            "program": "${workspaceFolder}/generate-screenshots.js",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch TS Node",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "cwd":"${fileDirname}",
             "preLaunchTask": "tsc: build - transformer/tsconfig.json",
-            "program": "${workspaceFolder}/transformer/index.ts",
+            "program": "${file}",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]

@@ -9,6 +9,11 @@ Thumbs.db
 # Vendors
 node_modules/
 out/
+tmp/
+
+# Temporary avoiding a mess in GIT
+/public/src/es5
+/public/src/es6
 
 # Tester screenshots
 /tester/screens

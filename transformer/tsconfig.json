@@ -3,7 +3,7 @@
         "module": "ESNext", // or ES2015, ES2020
         "moduleResolution": "Node",
         "esModuleInterop": true,
-        "target": "es5",
+        "target": "ES2017",
         "outDir": "out",
         "sourceMap": true
     },

@@ -3,6 +3,7 @@ import { Browser } from "puppeteer";
 export type ExampleConf = {
     uri: string;
     logs?: string[];
+    warnings?: string[];
     errors?: string[];
     screenshot?: string | Buffer;
 };

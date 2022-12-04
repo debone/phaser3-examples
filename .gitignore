@@ -12,8 +12,10 @@ out/
 tmp/
 
 # Temporary avoiding a mess in GIT
-/public/src/es5
-/public/src/es6
+/public/src/es5/**/*.js
+/public/src/es5/**/*.new
+/public/src/es6/**/*.js
+/public/src/es6/**/*.new
 
 # Tester screenshots
 /tester/screens

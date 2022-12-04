@@ -1,24 +1,22 @@
 import fs from "fs-extra";
+import nodeFs from "fs";
 import path from "path";
 
 import puppeteer from "puppeteer";
 
-import { transform } from "lebab";
-import jscodeshift from "jscodeshift";
+import { transform as lebabTransform } from "lebab";
 
-import { getExamples } from "./utils.js";
+import { getExamples, getPatchedVersion, writeToEs6 } from "./utils.js";
 import { Example, processExample } from "./utilsBrowser.js";
+import { codemod } from "./codemod.js";
 
 let examples: any[] = [];
 
 getExamples(examples, "../public/src/es5");
 
-const j = jscodeshift;
-
 const testServer = "http://localhost:8080/";
 
 let goodConversion = 0;
-let needsReview = 0;
 let badConversion = 0;
 
 const browserPromise = puppeteer.launch({
@@ -28,15 +26,15 @@ const browserPromise = puppeteer.launch({
 });
 
 browserPromise.then(async (browser) => {
-    //for (let i = 0; i < examples.length; i++) {
-    for (let i = 0, l = 20; i < l; i++) {
+    let l = examples.length;
+    for (let i = 0; i < l; i++) {
         console.log(`Starting convertion of ${i}/${l}...`);
 
         let example = examples[i];
-        if (i % 100 === 0) console.log(i);
 
         let isBadConversion = false;
-        let isReviewNeeded = false;
+
+        let overallError = "";
 
         const exampleObj: Example = {
             es5: {
@@ -44,78 +42,93 @@ browserPromise.then(async (browser) => {
                     "../public/",
                     ""
                 )}`,
+                warnings: [],
+                errors: [],
             },
             es6: {
                 uri: `${testServer}view.html?src=${example.url.replace(
                     "../public/src/es5/",
                     "src/es6/"
                 )}`,
+                warnings: [],
+                errors: [],
             },
         };
 
         try {
-            await processExample(browser, exampleObj, "es5");
+            // TODO: Testing codemods, remember to uncomment
+            // await processExample(browser, exampleObj, "es5");
 
-            if (exampleObj.es5.errors.length) {
-                console.table(exampleObj.es5.errors);
+            if (exampleObj.es5.errors?.length) {
                 throw new Error("Original example error on the browser");
             }
 
-            const file = fs.readFileSync(example.path).toString();
+            const file = getPatchedVersion(example.path);
 
-            const { code, warnings } = transform(file, ["let"]);
+            let { code, warnings } = lebabTransform(file, [
+                "let",
+                "arrow",
+                "arrow-return",
+                "template",
+            ]);
 
             if (warnings.length) {
-                console.warn("Lebab warning");
-                console.table(warnings);
-                isReviewNeeded = true;
+                exampleObj.es5.warnings = warnings;
+                throw "";
             }
 
-            const root = j(code);
+            try {
+                code = codemod(code);
+            } catch (e) {
+                exampleObj.es5.errors?.push(e);
+                throw e;
+            }
 
             let exampleEs6 = writeToEs6(example, code);
 
             await processExample(browser, exampleObj, "es6");
 
-            if (exampleObj.es6.errors.length) {
-                console.table(exampleObj.es6.errors);
+            if (exampleObj.es6.errors?.length) {
                 throw new Error("ES6 example error on the browser");
             }
         } catch (error) {
+            overallError = error;
             isBadConversion = true;
-            console.error(example.url.replace("../public/", ""), error);
         }
 
         if (isBadConversion) {
+            console.warn(example.url.replace("../public/", ""));
+
+            if (overallError !== "") {
+                console.error(overallError);
+            }
+
+            if (exampleObj.es5.warnings?.length) {
+                console.warn("Lebab warnings");
+                console.table(exampleObj.es5.warnings);
+            }
+
+            if (exampleObj.es5.errors?.length) {
+                console.error("ES5 Errors");
+                console.table(exampleObj.es5.errors);
+            }
+
+            if (exampleObj.es6.errors?.length) {
+                console.error("ES6 Errors");
+                console.table(exampleObj.es6.errors);
+            }
+
             badConversion++;
-        } else if (isReviewNeeded) {
-            needsReview++;
         } else {
             goodConversion++;
         }
     }
 
-    console.log(`Conversions finished`);
+    console.log(
+        `Conversions finished with ${100 * (goodConversion / l)}% success`
+    );
     console.log(`Good ones: ${goodConversion}`);
-    console.log(`Needs review: ${needsReview}`);
     console.log(`Broken conversion: ${badConversion}`);
 
     process.exit();
 });
-
-function writeToEs6(example, file) {
-    const es6File = example.url.replace("/public/src/es5/", "/public/src/es6/");
-    const es6Path = path.dirname(es6File);
-
-    if (!fs.existsSync(es6Path)) {
-        fs.mkdirSync(es6Path, { recursive: true });
-    }
-
-    fs.writeFileSync(es6File, file);
-
-    return {
-        ...example,
-        url: es6File,
-        path: es6Path,
-    };
-}

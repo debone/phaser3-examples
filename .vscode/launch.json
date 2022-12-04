@@ -26,6 +26,20 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Launch Transformer",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "cwd":"${workspaceFolder}/transformer/",
+            "preLaunchTask": "tsc: build - transformer/tsconfig.json",
+            "program": "${workspaceFolder}/transformer/transformES5.ts",
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Launch TS Node",
             "skipFiles": [
                 "<node_internals>/**"

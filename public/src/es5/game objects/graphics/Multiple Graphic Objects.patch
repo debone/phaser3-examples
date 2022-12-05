@@ -1,0 +1,32 @@
+Index: ../public/src/es5/game objects/graphics/Multiple Graphic Objects.new
+===================================================================
+--- ../public/src/es5/game objects/graphics/Multiple Graphic Objects.new
++++ ../public/src/es5/game objects/graphics/Multiple Graphic Objects.new
+@@ -44,12 +44,12 @@
+     }
+ }
+
+ function drawStar (
+-    graphics,
+-    cx, cy,
+-    spikes,
+-    outerRadius, innerRadius,
++    graphics,
++    cx, cy,
++    spikes,
++    outerRadius, innerRadius,
+     color, lineColor) {
+     var rot = Math.PI / 2 * 3;
+     var x = cx;
+     var y = cy;
+@@ -57,9 +57,9 @@
+     graphics.lineStyle(10, lineColor, 1.0);
+     graphics.fillStyle(color, 1.0);
+     graphics.beginPath();
+     graphics.moveTo(cx, cy - outerRadius);
+-    for (i = 0; i < spikes; i++) {
++    for (var i = 0; i < spikes; i++) {
+         x = cx + Math.cos(rot) * outerRadius;
+         y = cy + Math.sin(rot) * outerRadius;
+         graphics.lineTo(x, y);
+         rot += step;

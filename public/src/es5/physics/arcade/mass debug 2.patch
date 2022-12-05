@@ -1,0 +1,15 @@
+Index: ../public/src/es5/physics/arcade/mass debug 2.new
+===================================================================
+--- ../public/src/es5/physics/arcade/mass debug 2.new
++++ ../public/src/es5/physics/arcade/mass debug 2.new
+@@ -15,9 +15,9 @@
+         create: create
+     }
+ };
+
+-new Phaser.Game(config);
++var game = new Phaser.Game(config);
+
+ function preload ()
+ {
+     this.load.image('block', 'assets/sprites/block.png');

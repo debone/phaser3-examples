@@ -1,0 +1,75 @@
+Index: ../public/src/es5/game objects/blitter/twist scroller.new
+===================================================================
+--- ../public/src/es5/game objects/blitter/twist scroller.new
++++ ../public/src/es5/game objects/blitter/twist scroller.new
+@@ -41,9 +41,9 @@
+     flgCH = 13, // Switzerland
+     flgLU = 14; // Luxembourg
+
+ // Scrolltext
+-var text = [
++const text = [
+     [fNoop, colrY, 0, 'phaser 3'],
+     [fSin1, colrB, 0, 'phaser 3'],
+     [fSin2, colrP, 0, 'phaser 3'],
+     [fBce1, colrY, 0, 'phaser 3'],
+@@ -146,21 +146,22 @@
+     [fSin2, colrY, 0, 'Note the method described here does not work on some STE\'s.   Time is up, so let\'s cut the crap:'],
+     [fRot1, colrB, 0, 'According to Vickers of Legacy sitting next to us, you\'ve been reading this text for over an hour...'],
+     [fCyld, colrP, 0, 'But the original version was over 10 kb long, ensuring 4 hours of pleasant reading!'],
+     [fGrow, colrY, 0, 'See you in the next St Connexion Production, scheduled to be released within the next 2 years!                                 '],
+-],
+-frame,
+-letters,
+-structure,
+-text_num  = -1,
+-callback  = null,
+-tile      = null,
+-counter   = -1,
+-first     = 0,
+-iteration = null,
+-skip      = false,
+-blitter   = null;
++];
+
++var frame;
++var letters;
++var structure;
++var text_num  = -1;
++var callback  = null;
++var tile      = null;
++var counter   = -1;
++var first     = 0;
++var iteration = null;
++var skip      = false;
++var blitter   = null;
++
+ var game = new Phaser.Game(config);
+
+ function preload ()
+ {
+@@ -190,10 +191,11 @@
+
+     for (var y = 0 ; y < 6 ; y++) {
+         for (var x = 0 ; x < 10 ; x++) {
+             var letter = [];
+-            for (var i = 0 ; i < 12 ; i++) {
+-                var col = [], tot = 0;
++            for (let i = 0 ; i < 12 ; i++) {
++                var col = []
++                var tot = 0;
+                 for (var j = 0 ; j < 17 ; j++) {
+                     var index = ((y * 17 + j) * imageData.width + (x * 12 + i)) * 4;
+                     col[j] = (imageData.data[index] > 0) ? 1 : 0;
+                     tot += col[j];
+@@ -216,9 +218,9 @@
+     var letter, c = 0;
+     structure = []
+
+     // Spaces before the text
+-    for (var i = 0 ; i < 34 ; i++) {
++    for (let i = 0 ; i < 34 ; i++) {
+         structure[c++] = [];
+     }
+
+     // Run through the text

@@ -1,0 +1,15 @@
+Index: ../public/src/es5/game objects/container/animation test.new
+===================================================================
+--- ../public/src/es5/game objects/container/animation test.new
++++ ../public/src/es5/game objects/container/animation test.new
+@@ -29,9 +29,9 @@
+     var sprite1 = this.add.sprite(100, 200, 'mummy').play('run');
+     var sprite2 = this.add.sprite(100, 300, 'mummy').play('run');
+     var sprite3 = this.add.sprite(100, 400, 'mummy').play('run');
+
+-    container = this.add.container(300, 0, [ sprite1, sprite2, sprite3 ]);
++    var container = this.add.container(300, 0, [ sprite1, sprite2, sprite3 ]);
+
+     this.tweens.add({
+         targets: container,
+         scaleX: 3,

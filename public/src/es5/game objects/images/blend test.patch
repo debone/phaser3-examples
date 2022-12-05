@@ -1,0 +1,24 @@
+Index: ../public/src/es5/game objects/images/blend test.js
+===================================================================
+--- ../public/src/es5/game objects/images/blend test.js
++++ ../public/src/es5/game objects/images/blend test.js
+@@ -11,9 +11,10 @@
+     }
+ };
+ 
+ var t = 0;
+-var image0, image1;
++var image0;
++var image1;
+ var game = new Phaser.Game(config);
+ 
+ function preload ()
+ {
+@@ -34,5 +35,5 @@
+ function update ()
+ {
+     image0.y = image1.y = 300 + Math.sin(t) * 100;
+     t += 0.01;
+-}
+\ No newline at end of file
++}

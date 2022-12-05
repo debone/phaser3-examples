@@ -1,0 +1,15 @@
+Index: ../public/src/es5/input/mouse/mass sprite test.js
+===================================================================
+--- ../public/src/es5/input/mouse/mass sprite test.js
++++ ../public/src/es5/input/mouse/mass sprite test.js
+@@ -30,9 +30,9 @@
+     var hitArea = new Phaser.Geom.Rectangle(0, 0, 32, 32);
+     var hitAreaCallback = Phaser.Geom.Rectangle.Contains;
+ 
+     //  Create 400 sprites aligned in a grid
+-    group = this.make.group({
++    var group = this.make.group({
+         classType: Phaser.GameObjects.Image,
+         key: 'bobs',
+         frame: Phaser.Utils.Array.NumberArray(0, 399),
+         randomFrame: true,

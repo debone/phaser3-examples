@@ -1,0 +1,26 @@
+Index: ../public/src/es5/game objects/images/get bounds.js
+===================================================================
+--- ../public/src/es5/game objects/images/get bounds.js
++++ ../public/src/es5/game objects/images/get bounds.js
+@@ -11,9 +11,12 @@
+     }
+ };
+ 
+ var image;
+-var top_left, top_right, bot_left, bot_right;
++var top_left;
++var top_right;
++var bot_left;
++var bot_right;
+ // var line;
+ var game = new Phaser.Game(config);
+ // var graphics;
+ var rect;
+@@ -52,5 +55,5 @@
+     top_left.setPosition(rect.x,rect.y);
+     top_right.setPosition(rect.x+rect.width,rect.y);
+     bot_left.setPosition(rect.x,rect.y+rect.height);
+     bot_right.setPosition(rect.x+rect.width,rect.y+rect.height);
+-}
+\ No newline at end of file
++}

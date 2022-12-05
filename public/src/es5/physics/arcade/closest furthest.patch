@@ -1,0 +1,15 @@
+Index: ../public/src/es5/physics/arcade/closest furthest.new
+===================================================================
+--- ../public/src/es5/physics/arcade/closest furthest.new
++++ ../public/src/es5/physics/arcade/closest furthest.new
+@@ -13,9 +13,9 @@
+         update: update
+     }
+ };
+
+-new Phaser.Game(config);
++var game = new Phaser.Game(config);
+
+ function preload ()
+ {
+     this.load.image('block', 'assets/sprites/block.png');

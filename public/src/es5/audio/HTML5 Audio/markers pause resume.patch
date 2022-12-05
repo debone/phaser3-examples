@@ -1,7 +1,7 @@
-Index: /Users/vdebone/Personal/psrc/phaser3-examples/public/src/es5/audio/HTML5 Audio/markers pause resume.new
+Index: ../public/src/es5/audio/HTML5 Audio/markers pause resume.new
 ===================================================================
---- /Users/vdebone/Personal/psrc/phaser3-examples/public/src/es5/audio/HTML5 Audio/markers pause resume.new
-+++ /Users/vdebone/Personal/psrc/phaser3-examples/public/src/es5/audio/HTML5 Audio/markers pause resume.new
+--- ../public/src/es5/audio/HTML5 Audio/markers pause resume.new
++++ ../public/src/es5/audio/HTML5 Audio/markers pause resume.new
 @@ -9,9 +9,9 @@
      height: 600,
      scene: {
@@ -14,10 +14,10 @@ Index: /Users/vdebone/Personal/psrc/phaser3-examples/public/src/es5/audio/HTML5 
      audio: {
          disableWebAudio: true
 @@ -124,9 +124,9 @@
- 
+
      pauseResumeButtonText = this.add.bitmapText(640, 387, 'nokia', '', 16);
  }
- 
+
 -function updatePauseResumeButton()
 +function update()
  {

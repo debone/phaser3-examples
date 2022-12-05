@@ -1,0 +1,15 @@
+Index: ../public/src/es5/game objects/group/create multiple keys.js
+===================================================================
+--- ../public/src/es5/game objects/group/create multiple keys.js
++++ ../public/src/es5/game objects/group/create multiple keys.js
+@@ -19,9 +19,9 @@
+ }
+ 
+ function create ()
+ {
+-    group = this.add.group();
++    var group = this.add.group();
+ 
+     // group.createMultiple({ key: ['diamonds', 'veg'], frame: [0,1,2,3,4] });
+     // group.createMultiple({ key: ['diamonds', 'veg'], frame: [0,1,2,3,4], repeat: 1 });
+     // group.createMultiple({ key: ['diamonds', 'veg'], frame: [0,1,2], frameQuantity: 3 });

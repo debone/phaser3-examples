@@ -1,0 +1,14 @@
+Index: ../public/src/es5/input/camera/multi cam sprite.js
+===================================================================
+--- ../public/src/es5/input/camera/multi cam sprite.js
++++ ../public/src/es5/input/camera/multi cam sprite.js
+@@ -13,8 +13,9 @@
+ 
+ var gui;
+ var graphics;
+ var bounds;
++var controls;
+ 
+ var cam1;
+ var cam2;
+ var cam3;

@@ -1,0 +1,14 @@
+Index: ../public/src/es5/scalemanager/fit running game.js
+===================================================================
+--- ../public/src/es5/scalemanager/fit running game.js
++++ ../public/src/es5/scalemanager/fit running game.js
+@@ -139,8 +139,8 @@
+             gravity: { y: 300 },
+             debug: false
+         }
+     },
+-    scene: GameScene
++    scene: [ GameScene ]
+ };
+ 
+ var game = new Phaser.Game(config);

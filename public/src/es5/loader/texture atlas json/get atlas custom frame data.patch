@@ -1,0 +1,15 @@
+Index: ../public/src/es5/loader/texture atlas json/get atlas custom frame data.js
+===================================================================
+--- ../public/src/es5/loader/texture atlas json/get atlas custom frame data.js
++++ ../public/src/es5/loader/texture atlas json/get atlas custom frame data.js
+@@ -34,9 +34,9 @@
+         img.setTint(img.frame.customData.tint);
+     }
+ }
+ 
+-var atlasJSON = {"frames": [
++const atlasJSON = {"frames": [
+     {
+         "filename": "contra2",
+         "frame": {"x":2,"y":316,"w":142,"h":222},
+         "rotated": false,

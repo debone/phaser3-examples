@@ -1,0 +1,15 @@
+Index: ../public/src/es5/physics/arcade/bounce test.js
+===================================================================
+--- ../public/src/es5/physics/arcade/bounce test.js
++++ ../public/src/es5/physics/arcade/bounce test.js
+@@ -16,8 +16,10 @@
+ };
+ 
+ var logo = null;
+ 
++var text;
++
+ var maxY = 0;
+ var minY = 600;
+ var lastY = 0;
+ var duration = 0;

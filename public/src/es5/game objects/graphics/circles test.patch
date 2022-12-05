@@ -1,0 +1,15 @@
+Index: ../public/src/es5/game objects/graphics/circles test.new
+===================================================================
+--- ../public/src/es5/game objects/graphics/circles test.new
++++ ../public/src/es5/game objects/graphics/circles test.new
+@@ -33,9 +33,9 @@
+ {
+     graphics.clear();
+     graphics.fillStyle(0x9966ff, 1);
+
+-    for (b in balls)
++    for (var b in balls)
+     {
+         var ball = balls[b];
+         ball.x += ball.v * Math.cos(ball.a);
+         ball.y += ball.v * Math.sin(ball.a);

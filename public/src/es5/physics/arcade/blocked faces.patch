@@ -1,0 +1,15 @@
+Index: ../public/src/es5/physics/arcade/blocked faces.new
+===================================================================
+--- ../public/src/es5/physics/arcade/blocked faces.new
++++ ../public/src/es5/physics/arcade/blocked faces.new
+@@ -16,9 +16,9 @@
+         update: update
+     }
+ };
+
+-new Phaser.Game(config);
++var game = new Phaser.Game(config);
+
+ var atari;
+ var block;
+ var gfx;

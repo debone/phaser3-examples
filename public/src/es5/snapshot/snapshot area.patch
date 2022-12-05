@@ -1,0 +1,64 @@
+Index: ../public/src/es5/snapshot/snapshot area.js
+===================================================================
+--- ../public/src/es5/snapshot/snapshot area.js
++++ ../public/src/es5/snapshot/snapshot area.js
+@@ -24,21 +24,23 @@
+     this.load.image('red', 'assets/sprites/128x128.png');
+     this.load.spritesheet('mummy', 'assets/sprites/metalslug_mummy37x45.png', { frameWidth: 37, frameHeight: 45, endFrame: 17 });
+ }
+ 
++var particles;
++
+ function create ()
+ {
+     var g = this.add.graphics().setDepth(1);
+ 
+-    this.input.on('pointermove', function (pointer) {
++    this.input.on('pointermove', (pointer) => {
+ 
+         g.clear();
+         g.lineStyle(2, 0xffffff);
+         g.strokeRect(pointer.x - 2, pointer.y - 2, 132, 132);
+ 
+-    }, this);
++    });
+ 
+-    this.input.on('pointerdown', function (pointer) {
++    this.input.on('pointerdown', (pointer) => {
+ 
+         var textureManager = this.textures;
+ 
+         this.game.renderer.snapshotArea(pointer.x, pointer.y, 128, 128, function (image)
+@@ -54,9 +56,9 @@
+ 
+             particles.setTexture('area');
+         });
+ 
+-    }, this);
++    });
+ 
+     //  Everything from here down is just stuff to display, so you can grab from it
+ 
+     var bg = this.add.image(400, 455, 'pic').setScale(1.1);
+@@ -101,9 +103,9 @@
+             x -= 100;
+             y = 50;
+         }
+     }
+-    
++
+     container.add(sprites);
+ 
+     this.tweens.add({
+         targets: container,
+@@ -111,9 +113,9 @@
+         duration: 20000,
+         repeat: -1
+     });
+ 
+-    var particles = this.add.particles('red');
++    particles = this.add.particles('red');
+ 
+     var emitter = particles.createEmitter({
+         lifespan: 2000,
+         speed: { min: 100, max: 200 },

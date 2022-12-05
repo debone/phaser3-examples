@@ -1,0 +1,22 @@
+Index: ../public/src/es5/scenes/copies of the same scene.js
+===================================================================
+--- ../public/src/es5/scenes/copies of the same scene.js
++++ ../public/src/es5/scenes/copies of the same scene.js
+@@ -1,5 +1,5 @@
+-var Controller = new Phaser.Class({
++const Controller = new Phaser.Class({
+ 
+     Extends: Phaser.Scene,
+ 
+     initialize:
+@@ -27,9 +27,9 @@
+     }
+ 
+ });
+ 
+-var Demo = new Phaser.Class({
++const Demo = new Phaser.Class({
+ 
+     Extends: Phaser.Scene,
+ 
+     initialize:

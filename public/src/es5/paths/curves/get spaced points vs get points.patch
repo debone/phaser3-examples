@@ -1,0 +1,15 @@
+Index: ../public/src/es5/paths/curves/get spaced points vs get points.js
+===================================================================
+--- ../public/src/es5/paths/curves/get spaced points vs get points.js
++++ ../public/src/es5/paths/curves/get spaced points vs get points.js
+@@ -12,9 +12,9 @@
+ var game = new Phaser.Game(config);
+ 
+ function create ()
+ {
+-    graphics = this.add.graphics();
++    var graphics = this.add.graphics();
+ 
+     var path = new Phaser.Curves.Path(100, 100);
+ 
+     path.lineTo(500, 200);

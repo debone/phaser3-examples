@@ -1,0 +1,14 @@
+Index: ../public/src/es5/game objects/container/parent matrix.new
+===================================================================
+--- ../public/src/es5/game objects/container/parent matrix.new
++++ ../public/src/es5/game objects/container/parent matrix.new
+@@ -17,8 +17,9 @@
+ var container1;
+ var container2;
+ var tempMatrix;
+ var tempParentMatrix;
++var graphics;
+
+ var game = new Phaser.Game(config);
+
+ function preload ()

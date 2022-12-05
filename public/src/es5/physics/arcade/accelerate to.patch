@@ -1,0 +1,15 @@
+Index: ../public/src/es5/physics/arcade/accelerate to.js
+===================================================================
+--- ../public/src/es5/physics/arcade/accelerate to.js
++++ ../public/src/es5/physics/arcade/accelerate to.js
+@@ -12,9 +12,9 @@
+         create: create
+     }
+ };
+ 
+-new Phaser.Game(config);
++var game = new Phaser.Game(config);
+ 
+ function preload ()
+ {
+     this.load.image('block', 'assets/sprites/block.png');

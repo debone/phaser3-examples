@@ -1,0 +1,48 @@
+Index: ../public/src/es5/spine/invisible test.js
+===================================================================
+--- ../public/src/es5/spine/invisible test.js
++++ ../public/src/es5/spine/invisible test.js
+@@ -28,9 +28,9 @@
+ }
+ 
+ function create ()
+ {
+-    for (var i = 0; i < 32; i++)
++    for (let i = 0; i < 32; i++)
+     {
+         let obj = this.add.spine(i * 64, 100, 'boy', 'idle', true).setScale(0.25);
+ 
+         if (i % 2 === 0)
+@@ -38,9 +38,9 @@
+             obj.setVisible(false);
+         }
+     }
+ 
+-    for (var i = 0; i < 32; i++)
++    for (let i = 0; i < 32; i++)
+     {
+         let obj = this.add.spine(i * 64, 300, 'boy', 'walk', true).setScale(0.25);
+ 
+         if (i % 2 === 0)
+@@ -48,9 +48,9 @@
+             obj.setVisible(false);
+         }
+     }
+ 
+-    for (var i = 0; i < 32; i++)
++    for (let i = 0; i < 32; i++)
+     {
+         let obj = this.add.spine(i * 64, 500, 'boy', 'run', true).setScale(0.25);
+ 
+         if (i % 2 === 0)
+@@ -58,9 +58,9 @@
+             obj.setVisible(false);
+         }
+     }
+ 
+-    for (var i = 0; i < 32; i++)
++    for (let i = 0; i < 32; i++)
+     {
+         let obj = this.add.spine(i * 64, 700, 'boy', 'jump', true).setScale(0.25);
+ 
+         if (i % 2 === 0)

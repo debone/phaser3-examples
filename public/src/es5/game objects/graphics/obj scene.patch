@@ -1,0 +1,79 @@
+Index: ../public/src/es5/game objects/graphics/obj scene.js
+===================================================================
+--- ../public/src/es5/game objects/graphics/obj scene.js
++++ ../public/src/es5/game objects/graphics/obj scene.js
+@@ -22,9 +22,9 @@
+     {
+         var ts = Math.sin(theta);
+         var tc = Math.cos(theta);
+         var model = this.model;
+-        
++
+         for (var n = 0; n < model.verts.length; n++)
+         {
+             var vert = model.verts[n];
+             var y = vert.y;
+@@ -39,9 +39,9 @@
+     {
+         var ts = Math.sin(theta);
+         var tc = Math.cos(theta);
+         var model = this.model;
+-        
++
+         for (var n = 0; n < model.verts.length; n++)
+         {
+             var vert = model.verts[n];
+             var x = vert.x;
+@@ -56,9 +56,9 @@
+     {
+         var ts = Math.sin(theta);
+         var tc = Math.cos(theta);
+         var model = this.model;
+-        
++
+         for (var n = 0; n < model.verts.length; n++)
+         {
+             var vert = model.verts[n];
+             var x = vert.x;
+@@ -232,9 +232,9 @@
+ 
+             if (line[0] === 'v')
+             {
+                 // lines that start with 'v' are vertices
+-                var tokens = line.split(' ');
++                const tokens = line.split(' ');
+                 verts.push({
+                     x: parseFloat(tokens[1]),
+                     y: parseFloat(tokens[2]),
+                     z: parseFloat(tokens[3])
+@@ -242,17 +242,17 @@
+             }
+             else if (line[0] === 'f')
+             {
+                 // lines that start with 'f' are faces
+-                var tokens = line.split(' ');
++                const tokens = line.split(' ');
+ 
+                 var face = [
+                     parseInt(tokens[1], 10),
+                     parseInt(tokens[2], 10),
+                     parseInt(tokens[3], 10),
+                     parseInt(tokens[4], 10)
+                 ];
+-            
++
+                 faces.push(face);
+ 
+                 if (face[0] < 0)
+                 {
+@@ -283,9 +283,9 @@
+         this.modelData[key] = {
+             verts: verts,
+             faces: faces
+         };
+-      
++
+         return this.modelData[key];
+     }
+ };
+ 

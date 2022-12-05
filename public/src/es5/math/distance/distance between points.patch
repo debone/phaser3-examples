@@ -1,0 +1,14 @@
+Index: ../public/src/es5/math/distance/distance between points.js
+===================================================================
+--- ../public/src/es5/math/distance/distance between points.js
++++ ../public/src/es5/math/distance/distance between points.js
+@@ -10,8 +10,9 @@
+ 
+ var cursors;
+ var player;
+ var ufo;
++var graphic;
+ 
+ var game = new Phaser.Game(config);
+ 
+ function preload() {

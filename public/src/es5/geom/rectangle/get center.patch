@@ -1,0 +1,23 @@
+Index: ../public/src/es5/geom/rectangle/get center.js
+===================================================================
+--- ../public/src/es5/geom/rectangle/get center.js
++++ ../public/src/es5/geom/rectangle/get center.js
+@@ -11,9 +11,9 @@
+ var game = new Phaser.Game(config);
+ 
+ function create ()
+ {
+-    graphics = this.add.graphics({ fillStyle: { color: 0x00aa00 }, lineStyle: { color: 0x0000aa } });
++    var graphics = this.add.graphics({ fillStyle: { color: 0x00aa00 }, lineStyle: { color: 0x0000aa } });
+ 
+     var rectangles = [];
+     var points = [];
+ 
+@@ -75,5 +75,5 @@
+         graphics.lineStyle(1, 0x00aa00);
+ 
+         graphics.strokePoints(points);
+     }
+-}
+\ No newline at end of file
++}

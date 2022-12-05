@@ -1,0 +1,42 @@
+Index: ../public/src/es5/snapshot/snapshot game.js
+===================================================================
+--- ../public/src/es5/snapshot/snapshot game.js
++++ ../public/src/es5/snapshot/snapshot game.js
+@@ -11,10 +11,9 @@
+     }
+ };
+ 
+ var div = document.createElement('div');
+-div.innerHTML = 'PRESS SPACE TO TAKE SNAPSHOT<br>';
+-document.body.appendChild(div);
++
+ var time = 0;
+ var snapHistory = [];
+ var graphics;
+ var graphicsPath = [];
+@@ -28,14 +27,16 @@
+ }
+ 
+ function create ()
+ {
++    div.innerHTML = 'PRESS SPACE TO TAKE SNAPSHOT<br>';
++    document.body.appendChild(div);
+ 
+     for (var i = 0; i < 5; ++i)
+     {
+         var image = this.add.image(Math.random() * 800, Math.random() * 600, 'myImage');
+     }
+-    
++
+     graphics = this.add.graphics({x: 0, y: 0});
+ 
+     game.canvas.onmousedown = function (e) {
+         isMouseDown = true;
+@@ -98,5 +99,5 @@
+     graphics.strokePath();
+     graphics.closePath();
+ 
+     time += 0.01;
+-}
+\ No newline at end of file
++}

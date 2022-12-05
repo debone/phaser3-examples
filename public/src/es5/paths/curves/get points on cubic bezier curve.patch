@@ -1,0 +1,15 @@
+Index: ../public/src/es5/paths/curves/get points on cubic bezier curve.js
+===================================================================
+--- ../public/src/es5/paths/curves/get points on cubic bezier curve.js
++++ ../public/src/es5/paths/curves/get points on cubic bezier curve.js
+@@ -12,9 +12,9 @@
+ var game = new Phaser.Game(config);
+ 
+ function create ()
+ {
+-    graphics = this.add.graphics();
++    var graphics = this.add.graphics();
+ 
+     var p0 = new Phaser.Math.Vector2(100, 500);
+     var p1 = new Phaser.Math.Vector2(50, 100);
+     var p2 = new Phaser.Math.Vector2(600, 100);

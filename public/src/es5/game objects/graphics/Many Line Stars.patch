@@ -1,0 +1,15 @@
+Index: ../public/src/es5/game objects/graphics/Many Line Stars.new
+===================================================================
+--- ../public/src/es5/game objects/graphics/Many Line Stars.new
++++ ../public/src/es5/game objects/graphics/Many Line Stars.new
+@@ -47,9 +47,9 @@
+     graphics.lineStyle(1, lineColor, 1.0);
+     graphics.fillStyle(color, 1.0);
+     graphics.beginPath();
+     graphics.moveTo(cx, cy - outerRadius);
+-    for (i = 0; i < spikes; i++) {
++    for (var i = 0; i < spikes; i++) {
+         x = cx + Math.cos(rot) * outerRadius;
+         y = cy + Math.sin(rot) * outerRadius;
+         graphics.lineTo(x, y);
+         rot += step;

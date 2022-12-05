@@ -1,0 +1,15 @@
+Index: ../public/src/es5/game objects/particle emitter/digital rain.js
+===================================================================
+--- ../public/src/es5/game objects/particle emitter/digital rain.js
++++ ../public/src/es5/game objects/particle emitter/digital rain.js
+@@ -9,9 +9,9 @@
+         create: create
+     }
+ };
+ 
+-new Phaser.Game(config);
++var game = new Phaser.Game(config);
+ 
+ function preload ()
+ {
+     this.load.spritesheet('font', 'assets/fonts/retro/knighthawks-font-filled.png', { frameWidth: 32, frameHeight: 25 });

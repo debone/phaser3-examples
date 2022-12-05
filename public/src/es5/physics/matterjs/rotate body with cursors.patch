@@ -1,0 +1,33 @@
+Index: ../public/src/es5/physics/matterjs/rotate body with cursors.js
+===================================================================
+--- ../public/src/es5/physics/matterjs/rotate body with cursors.js
++++ ../public/src/es5/physics/matterjs/rotate body with cursors.js
+@@ -42,24 +42,16 @@
+     ship.setFixedRotation();
+ 
+     var emitter = particles.createEmitter({
+         speed: {
+-            onEmit: function (particle, key, t, value)
+-            {
+-                return ship.body.speed * 10;
+-            }
++            onEmit: (particle, key, t, value) => ship.body.speed * 10
++
+         },
+         lifespan: {
+-            onEmit: function (particle, key, t, value)
+-            {
+-                return Phaser.Math.Percent(ship.body.speed, 0, 300) * 40000;
+-            }
++            onEmit: (particle, key, t, value) => Phaser.Math.Percent(ship.body.speed, 0, 300) * 40000
+         },
+         alpha: {
+-            onEmit: function (particle, key, t, value)
+-            {
+-                return Phaser.Math.Percent(ship.body.speed, 0, 300) * 1000;
+-            }
++            onEmit: (particle, key, t, value) => Phaser.Math.Percent(ship.body.speed, 0, 300) * 1000
+         },
+         scale: { start: 1.0, end: 0 },
+         blendMode: 'ADD'
+     });

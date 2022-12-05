@@ -1,0 +1,15 @@
+Index: ../public/src/es5/geom/point/copy from.js
+===================================================================
+--- ../public/src/es5/geom/point/copy from.js
++++ ../public/src/es5/geom/point/copy from.js
+@@ -15,9 +15,9 @@
+     var graphics = this.add.graphics({ fillStyle: { color: 0x2266aa } });
+ 
+     var points = [];
+ 
+-    for(var i = 0; i < 150; i++)
++    for(var k = 0; k < 150; k++)
+     {
+         points.push(new Phaser.Geom.Point());
+     }
+ 

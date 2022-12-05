@@ -1,0 +1,15 @@
+Index: ../public/src/es5/physics/arcade/vertical friction.js
+===================================================================
+--- ../public/src/es5/physics/arcade/vertical friction.js
++++ ../public/src/es5/physics/arcade/vertical friction.js
+@@ -9,9 +9,9 @@
+         create: create
+     }
+ };
+ 
+-new Phaser.Game(config);
++var game = new Phaser.Game(config);
+ 
+ function preload ()
+ {
+     this.load.image('block', 'assets/sprites/block.png');

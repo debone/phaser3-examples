@@ -1,0 +1,15 @@
+Index: ../public/src/es5/paths/curves/get points on line curve.js
+===================================================================
+--- ../public/src/es5/paths/curves/get points on line curve.js
++++ ../public/src/es5/paths/curves/get points on line curve.js
+@@ -12,9 +12,9 @@
+ var game = new Phaser.Game(config);
+ 
+ function create ()
+ {
+-    graphics = this.add.graphics();
++    var graphics = this.add.graphics();
+ 
+     var curve = new Phaser.Curves.Line(new Phaser.Math.Vector2(100, 100), new Phaser.Math.Vector2(600, 400));
+ 
+     graphics.lineStyle(1, 0xffffff, 1);

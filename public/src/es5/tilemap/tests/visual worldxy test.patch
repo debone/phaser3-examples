@@ -1,0 +1,32 @@
+Index: ../public/src/es5/tilemap/tests/visual worldxy test.js
+===================================================================
+--- ../public/src/es5/tilemap/tests/visual worldxy test.js
++++ ../public/src/es5/tilemap/tests/visual worldxy test.js
+@@ -42,12 +42,12 @@
+     var groundTiles = map.addTilesetImage('ground_1x1');
+     var tiles2 = map.addTilesetImage('tiles2');
+     var kissTiles = map.addTilesetImage('dangerous-kiss');
+ 
+-    tileLayer = map.createLayerLayer('Tile Layer 1', groundTiles);
+-    offsetTileLayer = map.createLayerLayer('Offset Tile Layer', tiles2);
+-    tileLayer2 = map.createLayerLayer('Tile Layer 2', groundTiles);
+-    smallTileLayer = map.createLayerLayer('Small Tile Layer', kissTiles);
++    tileLayer = map.createLayer('Tile Layer 1', groundTiles);
++    offsetTileLayer = map.createLayer('Offset Tile Layer', tiles2);
++    tileLayer2 = map.createLayer('Tile Layer 2', groundTiles);
++    smallTileLayer = map.createLayer('Small Tile Layer', kissTiles);
+ 
+     selectLayer(tileLayer);
+ 
+     this.input.keyboard.on('keydown_ONE', function (event) {
+@@ -83,9 +83,9 @@
+     };
+     controls = new Phaser.Cameras.Controls.FixedKeyControl(controlConfig);
+ 
+     var help = this.add.text(16, 16, '', {
+- keydownont: '20px Arial',
++        font: '20px Arial',
+         backgroundColor: '#000000',
+         fill: '#ffffff'
+     });
+     help.setScrollFactor(0);

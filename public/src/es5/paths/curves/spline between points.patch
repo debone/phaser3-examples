@@ -1,0 +1,15 @@
+Index: ../public/src/es5/paths/curves/spline between points.js
+===================================================================
+--- ../public/src/es5/paths/curves/spline between points.js
++++ ../public/src/es5/paths/curves/spline between points.js
+@@ -12,9 +12,9 @@
+ var game = new Phaser.Game(config);
+ 
+ function create ()
+ {
+-    graphics = this.add.graphics();
++    var graphics = this.add.graphics();
+ 
+     let line = new Phaser.Geom.Line(50, 400, 700, 200);
+     // let line = new Phaser.Geom.Line(700, 500, 100, 300);
+ 

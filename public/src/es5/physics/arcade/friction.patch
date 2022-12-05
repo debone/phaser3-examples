@@ -1,0 +1,15 @@
+Index: ../public/src/es5/physics/arcade/friction.new
+===================================================================
+--- ../public/src/es5/physics/arcade/friction.new
++++ ../public/src/es5/physics/arcade/friction.new
+@@ -12,9 +12,9 @@
+
+ var platforms;
+ var lemmings;
+
+-new Phaser.Game(config);
++var game = new Phaser.Game(config);
+
+ function preload ()
+ {
+     this.load.image('platform', 'assets/sprites/platform.png');

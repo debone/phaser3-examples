@@ -1,0 +1,15 @@
+Index: ../public/src/es5/loader/texture atlas json/get atlas meta data.js
+===================================================================
+--- ../public/src/es5/loader/texture atlas json/get atlas meta data.js
++++ ../public/src/es5/loader/texture atlas json/get atlas meta data.js
+@@ -42,9 +42,9 @@
+ 
+     this.add.text(10, 10, str, { font: '16px Courier', fill: '#00ff00' });
+ }
+ 
+-var atlasJSON = {"frames": [
++const atlasJSON = {"frames": [
+     {
+         "filename": "128x128",
+         "frame": {"x":893,"y":342,"w":128,"h":128},
+         "rotated": false,

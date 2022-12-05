@@ -1,0 +1,32 @@
+Index: ../public/src/es5/physics/arcade/pushable body debug 1.js
+===================================================================
+--- ../public/src/es5/physics/arcade/pushable body debug 1.js
++++ ../public/src/es5/physics/arcade/pushable body debug 1.js
+@@ -30,13 +30,15 @@
+     this.load.image('blockANM');
+     this.load.image('blockBNM');
+ }
+ 
++var info;
++
+ function create ()
+ {
+     var colliderSet = false;
+ 
+-    var setVelocity = function (body, v)
++    var setVelocity = (body, v) =>
+     {
+         if (colliderSet)
+         {
+             body.setVelocityY(v);
+@@ -189,9 +191,9 @@
+     });
+ 
+     //  Runner
+ 
+-    var info = this.add.text(16, 16, 'Click the collider first:');
++    info = this.add.text(16, 16, 'Click the collider first:');
+ 
+     var atob = this.add.text(280, 16, 'A to B').setInteractive();
+     var btoa = this.add.text(400, 16, 'B to A').setInteractive();
+ 

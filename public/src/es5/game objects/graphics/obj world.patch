@@ -1,0 +1,129 @@
+Index: ../public/src/es5/game objects/graphics/obj world.js
+===================================================================
+--- ../public/src/es5/game objects/graphics/obj world.js
++++ ../public/src/es5/game objects/graphics/obj world.js
+@@ -287,9 +287,9 @@
+         {
+             this.torus.fadeOut(3);
+             this.spike.fadeIn();
+             this.current = this.spike;
+-            
++
+         }
+         else if (this.current === this.spike)
+         {
+             this.spike.fadeOut(3);
+@@ -425,16 +425,16 @@
+         // split the text into lines
+         var lines = text.replace('\r', '').split('\n');
+         var count = lines.length;
+ 
+-        for (var i = 0; i < count; i++)
++        for (let i = 0; i < count; i++)
+         {
+             var line = lines[i];
+ 
+             if (line[0] === 'v')
+             {
+                 // lines that start with 'v' are vertices
+-                var tokens = line.split(' ');
++                const tokens = line.split(' ');
+ 
+                 var pos = new BABYLON.Vector3(parseFloat(tokens[1]), parseFloat(tokens[2]), parseFloat(tokens[3]));
+                 var normal = new BABYLON.Vector3();
+ 
+@@ -452,17 +452,17 @@
+             }
+             else if (line[0] === 'f')
+             {
+                 // lines that start with 'f' are faces
+-                var tokens = line.split(' ');
++                const tokens = line.split(' ');
+ 
+-                var face = {
++                const face = {
+                     A: parseInt(tokens[1], 10),
+                     B: parseInt(tokens[2], 10),
+                     C: parseInt(tokens[3], 10),
+                     D: parseInt(tokens[4], 10)
+                 };
+-            
++
+                 if (face.A < 0)
+                 {
+                     face.A = verts.length + face.A;
+                 }
+@@ -506,9 +506,9 @@
+             }
+         }
+ 
+         //  Compute normals
+-        for (var i = 0; i < faces.length; i++)
++        for (let i = 0; i < faces.length; i++)
+         {
+             var face = faces[i];
+ 
+             var vertA = verts[face.A];
+@@ -522,9 +522,9 @@
+         this.modelData[key] = {
+             verts: verts,
+             faces: faces
+         };
+-      
++
+         return this.modelData[key];
+     }
+ };
+ 
+@@ -540,9 +540,9 @@
+ var game = new Phaser.Game(config);
+ 
+ //  Everything below here is just an export of the Babylon.js Math class
+ 
+-var BABYLON;
++let BABYLON;
+ (function (BABYLON) {
+     var Color4 = (function () {
+         function Color4(initialR, initialG, initialB, initialA) {
+             this.r = initialR;
+@@ -554,9 +554,9 @@
+             return "{R: " + this.r + " G:" + this.g + " B:" + this.b + " A:" + this.a + "}";
+         };
+         return Color4;
+     })();
+-    BABYLON.Color4 = Color4;    
++    BABYLON.Color4 = Color4;
+     var Vector2 = (function () {
+         function Vector2(initialX, initialY) {
+             this.x = initialX;
+             this.y = initialY;
+@@ -629,9 +629,9 @@
+             return (x * x) + (y * y);
+         };
+         return Vector2;
+     })();
+-    BABYLON.Vector2 = Vector2;    
++    BABYLON.Vector2 = Vector2;
+     var Vector3 = (function () {
+         function Vector3(initialX, initialY, initialZ) {
+             this.x = initialX;
+             this.y = initialY;
+@@ -729,9 +729,9 @@
+             return (x * x) + (y * y) + (z * z);
+         };
+         return Vector3;
+     })();
+-    BABYLON.Vector3 = Vector3;    
++    BABYLON.Vector3 = Vector3;
+     var Matrix = (function () {
+         function Matrix() {
+             this.m = [];
+         }
+@@ -1000,6 +1000,6 @@
+             return result;
+         };
+         return Matrix;
+     })();
+-    BABYLON.Matrix = Matrix;    
++    BABYLON.Matrix = Matrix;
+ })(BABYLON || (BABYLON = {}));

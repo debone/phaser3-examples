@@ -1,0 +1,103 @@
+Index: ../public/src/es5/tilemap/get tiles in shape.js
+===================================================================
+--- ../public/src/es5/tilemap/get tiles in shape.js
++++ ../public/src/es5/tilemap/get tiles in shape.js
+@@ -20,8 +20,10 @@
+ var graphics;
+ var selectedShape = 'rectangle';
+ var onlyColliding = false;
+ 
++var helpText;
++
+ function preload() {
+     this.load.tilemapTiledJSON('map', 'assets/tilemaps/maps/cybernoid.json');
+     this.load.image('cybernoid', 'assets/tilemaps/tiles/cybernoid.png');
+ }
+@@ -40,29 +42,29 @@
+     });
+ 
+     map.setCollisionByExclusion(7);
+ 
+-    this.input.keyboard.on('keydown-ONE', function (event) {
++    this.input.keyboard.on('keydown-ONE', (event) => {
+         selectedShape = 'rectangle';
+         helpText.setText(getHelpMessage());
+     });
+ 
+-    this.input.keyboard.on('keydown-TWO', function (event) {
++    this.input.keyboard.on('keydown-TWO', (event) => {
+         selectedShape = 'line';
+         helpText.setText(getHelpMessage());
+     });
+ 
+-    this.input.keyboard.on('keydown-THREE', function (event) {
++    this.input.keyboard.on('keydown-THREE', (event) => {
+         selectedShape = 'circle';
+         helpText.setText(getHelpMessage());
+     });
+ 
+-    this.input.keyboard.on('keydown-FOUR', function (event) {
++    this.input.keyboard.on('keydown-FOUR', (event) => {
+         selectedShape = 'triangle';
+         helpText.setText(getHelpMessage());
+     });
+ 
+-    this.input.keyboard.on('keydown-C', function (event) {
++    this.input.keyboard.on('keydown-C', (event) => {
+         onlyColliding = !onlyColliding;
+         helpText.setText(getHelpMessage());
+     });
+ 
+@@ -78,17 +80,17 @@
+         speed: 0.5
+     };
+     controls = new Phaser.Cameras.Controls.FixedKeyControl(controlConfig);
+ 
+-    var helpText = this.add.text(16, 16, getHelpMessage(), {
++    helpText = this.add.text(16, 16, getHelpMessage(), {
+         fontSize: '18px',
+         padding: { x: 10, y: 5 },
+         fill: '#ffffff',
+         backgroundColor: '#000000'
+     });
+     helpText.setScrollFactor(0);
+ 
+-    this.input.on('pointerdown', function () {
++    this.input.on('pointerdown', () => {
+ 
+         // Update p1 & p2 based on where user clicks
+         var worldPoint = this.input.activePointer.positionToCamera(this.cameras.main);
+         if (!p1) {
+@@ -101,9 +103,9 @@
+             p1 = worldPoint.clone();
+             p2 = null;
+         }
+ 
+-    }, this);
++    });
+ }
+ 
+ function update(time, delta) {
+     controls.update(delta);
+@@ -114,9 +116,9 @@
+     if (p2) { graphics.fillCircle(p2.x, p2.y, 3); }
+ 
+     // If we have both points, draw a shape and manipulate the tiles in that shape
+     if (p1 && p2) {
+-        map.forEachTile(function (tile) { tile.alpha = 1; });
++        map.forEachTile((tile) => { tile.alpha = 1; });
+ 
+         var overlappingTiles = [];
+ 
+         switch (selectedShape) {
+@@ -150,9 +152,9 @@
+             default:
+                 break;
+         }
+ 
+-        overlappingTiles.forEach(function (tile) { tile.alpha = 0.25; });
++        overlappingTiles.forEach((tile) => { tile.alpha = 0.25; });
+     }
+ 
+ }
+ 

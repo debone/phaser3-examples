@@ -1,0 +1,26 @@
+Index: ../public/src/es5/game objects/graphics/obj viewer.js
+===================================================================
+--- ../public/src/es5/game objects/graphics/obj viewer.js
++++ ../public/src/es5/game objects/graphics/obj viewer.js
+@@ -210,9 +210,9 @@
+ 
+         if (line[0] === 'v')
+         {
+             // lines that start with 'v' are vertices
+-            var tokens = line.split(' ');
++            const tokens = line.split(' ');
+             verts.push({
+                 x: parseFloat(tokens[1]),
+                 y: parseFloat(tokens[2]),
+                 z: parseFloat(tokens[3])
+@@ -220,9 +220,9 @@
+         }
+         else if (line[0] === 'f')
+         {
+             // lines that start with 'f' are faces
+-            var tokens = line.split(' ');
++            const tokens = line.split(' ');
+ 
+             var face = [
+                 parseInt(tokens[1], 10),
+                 parseInt(tokens[2], 10),

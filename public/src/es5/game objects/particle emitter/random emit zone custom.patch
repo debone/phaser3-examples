@@ -1,0 +1,48 @@
+Index: ../public/src/es5/game objects/particle emitter/random emit zone custom.js
+===================================================================
+--- ../public/src/es5/game objects/particle emitter/random emit zone custom.js
++++ ../public/src/es5/game objects/particle emitter/random emit zone custom.js
+@@ -13,21 +13,8 @@
+ var game = new Phaser.Game(config);
+ 
+ var circle = new Phaser.Geom.Circle(0, 0, 180);
+ 
+-var weightedCircle = {
+-    getRandomPoint: function (vec)
+-    {
+-        var t = Phaser.Math.PI2 * Math.random();
+-        var r = Math.pow(Math.random(), -0.1);
+-
+-        vec.x = circle.x + r * Math.cos(t) * circle.radius;
+-        vec.y = circle.y + r * Math.sin(t) * circle.radius;
+-
+-        return vec;
+-    }
+-};
+-
+ function preload ()
+ {
+     this.load.atlas('flares', 'assets/particles/flares.png', 'assets/particles/flares.json');
+ }
+@@ -35,8 +22,21 @@
+ function create ()
+ {
+     var particles = this.add.particles('flares');
+ 
++    var weightedCircle = {
++        getRandomPoint: (vec) =>
++        {
++            var t = Phaser.Math.PI2 * Math.random();
++            var r = Math.pow(Math.random(), -0.1);
++
++            vec.x = circle.x + r * Math.cos(t) * circle.radius;
++            vec.y = circle.y + r * Math.sin(t) * circle.radius;
++
++            return vec;
++        }
++    };
++
+     particles.createEmitter({
+         frame: 'red',
+         x: 400, y: 300,
+         lifespan: 2000,

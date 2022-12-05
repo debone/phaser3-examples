@@ -1,0 +1,14 @@
+Index: ../public/src/es5/geom/polygon/set to.js
+===================================================================
+--- ../public/src/es5/geom/polygon/set to.js
++++ ../public/src/es5/geom/polygon/set to.js
+@@ -13,8 +13,9 @@
+ var polygon;
+ var points;
+ var radius = 100;
+ var angle = 0;
++var graphics;
+ 
+ function create ()
+ {
+     graphics = this.add.graphics({ lineStyle: { width: 2, color: 0xaa6622 } });

@@ -1,0 +1,48 @@
+Index: ../public/src/es5/game objects/lights/tilemap layer.js
+===================================================================
+--- ../public/src/es5/game objects/lights/tilemap layer.js
++++ ../public/src/es5/game objects/lights/tilemap layer.js
+@@ -55,9 +55,9 @@
+ function update ()
+ {
+     if (this.input.keyboard.checkDown(cursors.left, 100))
+     {
+-        var tile = layer.getTileAtWorldXY(player.x - 32, player.y, true);
++        const tile = layer.getTileAtWorldXY(player.x - 32, player.y, true);
+ 
+         if (tile.index === 2)
+         {
+             //  Blocked, we can't move
+@@ -69,9 +69,9 @@
+         }
+     }
+     else if (this.input.keyboard.checkDown(cursors.right, 100))
+     {
+-        var tile = layer.getTileAtWorldXY(player.x + 32, player.y, true);
++        const tile = layer.getTileAtWorldXY(player.x + 32, player.y, true);
+ 
+         if (tile.index === 2)
+         {
+             //  Blocked, we can't move
+@@ -83,9 +83,9 @@
+         }
+     }
+     else if (this.input.keyboard.checkDown(cursors.up, 100))
+     {
+-        var tile = layer.getTileAtWorldXY(player.x, player.y - 32, true);
++        const tile = layer.getTileAtWorldXY(player.x, player.y - 32, true);
+ 
+         if (tile.index === 2)
+         {
+             //  Blocked, we can't move
+@@ -97,9 +97,9 @@
+         }
+     }
+     else if (this.input.keyboard.checkDown(cursors.down, 100))
+     {
+-        var tile = layer.getTileAtWorldXY(player.x, player.y + 32, true);
++        const tile = layer.getTileAtWorldXY(player.x, player.y + 32, true);
+ 
+         if (tile.index === 2)
+         {
+             //  Blocked, we can't move

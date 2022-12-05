@@ -1,0 +1,87 @@
+Index: ../public/src/es5/game objects/graphics/teapot.js
+===================================================================
+--- ../public/src/es5/game objects/graphics/teapot.js
++++ ../public/src/es5/game objects/graphics/teapot.js
+@@ -120,9 +120,9 @@
+ function rotateX3D (theta)
+ {
+     var ts = Math.sin(theta);
+     var tc = Math.cos(theta);
+-    
++
+     for (var n = 0; n < model.verts.length; n++)
+     {
+         var vert = model.verts[n];
+         var y = vert.y;
+@@ -136,9 +136,9 @@
+ function rotateY3D (theta)
+ {
+     var ts = Math.sin(theta);
+     var tc = Math.cos(theta);
+-    
++
+     for (var n = 0; n < model.verts.length; n++)
+     {
+         var vert = model.verts[n];
+         var x = vert.x;
+@@ -152,9 +152,9 @@
+ function rotateZ3D (theta)
+ {
+     var ts = Math.sin(theta);
+     var tc = Math.cos(theta);
+-    
++
+     for (var n = 0; n < model.verts.length; n++)
+     {
+         var vert = model.verts[n];
+         var x = vert.x;
+@@ -172,17 +172,17 @@
+ 
+     // split the text into lines
+     var lines = text.replace('\r', '').split('\n');
+     var count = lines.length;
+-  
++
+     for (var i = 0; i < count; i++)
+     {
+         var line = lines[i];
+ 
+         if (line[0] === 'v')
+         {
+             // lines that start with 'v' are vertices
+-            var tokens = line.split(' ');
++            const tokens = line.split(' ');
+             verts.push({
+                 x: parseFloat(tokens[1]),
+                 y: parseFloat(tokens[2]),
+                 z: parseFloat(tokens[3])
+@@ -190,16 +190,16 @@
+         }
+         else if (line[0] === 'f')
+         {
+             // lines that start with 'f' are faces
+-            var tokens = line.split(' ');
++            const tokens = line.split(' ');
+ 
+             var face = [
+                 parseInt(tokens[1], 10),
+                 parseInt(tokens[2], 10),
+                 parseInt(tokens[3], 10)
+             ];
+-        
++
+             faces.push(face);
+ 
+             if (face[0] < 0)
+             {
+@@ -216,9 +216,9 @@
+                 face[2] = verts.length + face[2];
+             }
+         }
+     }
+-  
++
+     return {
+         verts: verts,
+         faces: faces
+     };

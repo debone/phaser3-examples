@@ -1,0 +1,26 @@
+Index: ../public/src/es5/game objects/graphics/phaser logo 3d.js
+===================================================================
+--- ../public/src/es5/game objects/graphics/phaser logo 3d.js
++++ ../public/src/es5/game objects/graphics/phaser logo 3d.js
+@@ -28,9 +28,9 @@
+     var hsv = Phaser.Display.Color.HSVColorWheel();
+ 
+     colors = [];
+ 
+-    for (var i = 0; i < hsv.length; i += 4)
++    for (let i = 0; i < hsv.length; i += 4)
+     {
+         colors.push(hsv[i].color);
+     }
+ 
+@@ -41,9 +41,9 @@
+     logos = 13;
+     thickness = 10;
+     alpha = 1;
+ 
+-    for (var i = 0; i < logos; i++)
++    for (let i = 0; i < logos; i++)
+     {
+         s.push(0);
+     }
+ 

@@ -1,0 +1,15 @@
+Index: ../public/src/es5/audio/HTML5 Audio/loop delay.new
+===================================================================
+--- ../public/src/es5/audio/HTML5 Audio/loop delay.new
++++ ../public/src/es5/audio/HTML5 Audio/loop delay.new
+@@ -44,8 +44,10 @@
+ var topRightSpeaker;
+ var middleSpeaker;
+ var bottomSpeaker;
+
++var bitmapFont;
++
+ var gui;
+
+ var bass;
+

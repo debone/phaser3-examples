@@ -1,0 +1,25 @@
+Index: ../public/src/es5/paths/curves/point types.js
+===================================================================
+--- ../public/src/es5/paths/curves/point types.js
++++ ../public/src/es5/paths/curves/point types.js
+@@ -12,9 +12,9 @@
+ var game = new Phaser.Game(config);
+ 
+ function create ()
+ {
+-    graphics = this.add.graphics();
++    var graphics = this.add.graphics();
+ 
+     var p0 = new Phaser.Math.Vector2(100, 500);
+     var p1 = new Phaser.Math.Vector2(50, 100);
+     var p2 = new Phaser.Math.Vector2(600, 100);
+@@ -38,8 +38,8 @@
+ 
+     var pointA = curve.getPoint(0.95);
+ 
+     graphics.fillStyle(0xff00ff, 1);
+-    
++
+     graphics.fillCircle(pointA.x, pointA.y, 3);
+ 
+ }

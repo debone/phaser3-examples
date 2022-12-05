@@ -1,0 +1,48 @@
+Index: ../public/src/es5/tilemap/light map.js
+===================================================================
+--- ../public/src/es5/tilemap/light map.js
++++ ../public/src/es5/tilemap/light map.js
+@@ -60,9 +60,9 @@
+ function update ()
+ {
+     if (this.input.keyboard.checkDown(cursors.left, 100))
+     {
+-        var tile = layer.getTileAtWorldXY(player.x - 32, player.y, true);
++        const tile = layer.getTileAtWorldXY(player.x - 32, player.y, true);
+ 
+         if (tile.index === 2)
+         {
+             //  Blocked, we can't move
+@@ -74,9 +74,9 @@
+         }
+     }
+     else if (this.input.keyboard.checkDown(cursors.right, 100))
+     {
+-        var tile = layer.getTileAtWorldXY(player.x + 32, player.y, true);
++        const tile = layer.getTileAtWorldXY(player.x + 32, player.y, true);
+ 
+         if (tile.index === 2)
+         {
+             //  Blocked, we can't move
+@@ -88,9 +88,9 @@
+         }
+     }
+     else if (this.input.keyboard.checkDown(cursors.up, 100))
+     {
+-        var tile = layer.getTileAtWorldXY(player.x, player.y - 32, true);
++        const tile = layer.getTileAtWorldXY(player.x, player.y - 32, true);
+ 
+         if (tile.index === 2)
+         {
+             //  Blocked, we can't move
+@@ -102,9 +102,9 @@
+         }
+     }
+     else if (this.input.keyboard.checkDown(cursors.down, 100))
+     {
+-        var tile = layer.getTileAtWorldXY(player.x, player.y + 32, true);
++        const tile = layer.getTileAtWorldXY(player.x, player.y + 32, true);
+ 
+         if (tile.index === 2)
+         {
+             //  Blocked, we can't move

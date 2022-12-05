@@ -1,0 +1,15 @@
+Index: ../public/src/es5/physics/arcade/angular acceleration.new
+===================================================================
+--- ../public/src/es5/physics/arcade/angular acceleration.new
++++ ../public/src/es5/physics/arcade/angular acceleration.new
+@@ -12,9 +12,9 @@
+         create: create
+     }
+ };
+
+-new Phaser.Game(config);
++var game = new Phaser.Game(config);
+
+ function preload ()
+ {
+     this.load.image('block', 'assets/sprites/block.png');

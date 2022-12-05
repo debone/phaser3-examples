@@ -1,0 +1,15 @@
+Index: ../public/src/es5/game objects/container/container depth.new
+===================================================================
+--- ../public/src/es5/game objects/container/container depth.new
++++ ../public/src/es5/game objects/container/container depth.new
+@@ -27,9 +27,9 @@
+     var image2 = this.add.image(100, -100, 'lemming');
+     var image3 = this.add.image(100, 100, 'lemming');
+     var image4 = this.add.image(-100, 100, 'lemming');
+
+-    container = this.add.container(400, 300, [ image0, image1, image2, image3, image4 ]);
++    var container = this.add.container(400, 300, [ image0, image1, image2, image3, image4 ]);
+
+     this.tweens.add({
+         targets: container,
+         angle: 360,

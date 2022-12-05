@@ -1,0 +1,34 @@
+Index: ../public/src/es5/physics/arcade/move and stop at position.new
+===================================================================
+--- ../public/src/es5/physics/arcade/move and stop at position.new
++++ ../public/src/es5/physics/arcade/move and stop at position.new
+@@ -10,16 +10,16 @@
+         preload: preload,
+         create: create,
+         update: update
+     }
+-};
++};
+
+ var debug;
+ var source;
+ var target = new Phaser.Math.Vector2();
+ var distanceText;
+
+-new Phaser.Game(config);
++var game = new Phaser.Game(config);
+
+ function preload ()
+ {
+     this.load.image('flower', 'assets/sprites/flower-exo.png');
+@@ -34,9 +34,9 @@
+     this.input.on('pointerdown', function (pointer) {
+
+         target.x = pointer.x;
+         target.y = pointer.y;
+-
++
+         // Move at 200 px/s:
+         this.physics.moveToObject(source, target, 200);
+
+         debug.clear().lineStyle(1, 0x00ff00);

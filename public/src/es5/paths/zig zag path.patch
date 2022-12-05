@@ -1,0 +1,37 @@
+Index: ../public/src/es5/paths/zig zag path.js
+===================================================================
+--- ../public/src/es5/paths/zig zag path.js
++++ ../public/src/es5/paths/zig zag path.js
+@@ -34,9 +34,9 @@
+ 
+     var max = 8;
+     var h = 500 / max;
+ 
+-    for (var i = 0; i < max; i++)
++    for (let i = 0; i < max; i++)
+     {
+         if (i % 2 === 0)
+         {
+             path.lineTo(700, 50 + h * (i + 1));
+@@ -52,9 +52,9 @@
+     //  Create the path followers
+ 
+     followers = this.add.group();
+ 
+-    for (var i = 0; i < 32; i++)
++    for (let i = 0; i < 32; i++)
+     {
+         var ball = followers.create(0, -50, 'ball');
+ 
+         ball.setData('vector', new Phaser.Math.Vector2());
+@@ -86,9 +86,9 @@
+         var vec = balls[i].getData('vector');
+ 
+         //  The vector is updated in-place
+         path.getPoint(t, vec);
+-        
++
+         balls[i].setPosition(vec.x, vec.y);
+ 
+         balls[i].setDepth(balls[i].y);
+     }

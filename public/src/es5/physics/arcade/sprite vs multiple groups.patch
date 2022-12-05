@@ -1,0 +1,36 @@
+Index: ../public/src/es5/physics/arcade/sprite vs multiple groups.js
+===================================================================
+--- ../public/src/es5/physics/arcade/sprite vs multiple groups.js
++++ ../public/src/es5/physics/arcade/sprite vs multiple groups.js
+@@ -35,12 +35,12 @@
+ 
+     // var balls = this.add.group();
+     var balls = this.physics.add.group({ immovable: true });
+ 
+-    for (var i = 0; i < 8; i++)
++    for (let i = 0; i < 8; i++)
+     {
+-        var p = Phaser.Geom.Rectangle.RandomOutside(outer, inner);
+-        var b = balls.create(p.x, p.y, 'ball');
++        const p = Phaser.Geom.Rectangle.RandomOutside(outer, inner);
++        const b = balls.create(p.x, p.y, 'ball');
+ 
+         this.physics.add.existing(b);
+ 
+         b.body.setImmovable();
+@@ -50,12 +50,12 @@
+ 
+     // var balls = this.add.group();
+     var crates = this.physics.add.group({ immovable: true });
+ 
+-    for (var i = 0; i < 8; i++)
++    for (let i = 0; i < 8; i++)
+     {
+-        var p = Phaser.Geom.Rectangle.RandomOutside(outer, inner);
+-        var b = crates.create(p.x, p.y, 'crate');
++        const p = Phaser.Geom.Rectangle.RandomOutside(outer, inner);
++        const b = crates.create(p.x, p.y, 'crate');
+ 
+         this.physics.add.existing(b);
+ 
+         b.body.setImmovable();

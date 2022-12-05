@@ -1,0 +1,26 @@
+Index: ../public/src/es5/physics/matterjs/compound body from physics editor.js
+===================================================================
+--- ../public/src/es5/physics/matterjs/compound body from physics editor.js
++++ ../public/src/es5/physics/matterjs/compound body from physics editor.js
+@@ -41,9 +41,9 @@
+     var composite = Composite.create();
+ 
+     var parts = [ 'bird', 'p', 'h', 'a', 's', 'e', 'r' ];
+ 
+-    for (var i = 0; i < parts.length; i++)
++    for (let i = 0; i < parts.length; i++)
+     {
+         var body = Body.create({ isStatic: true });
+ 
+         Body.setParts(body, Parser.parseVertices(shapes[parts[i]].fixtures[0].vertices));
+@@ -69,9 +69,9 @@
+     this.matter.world.add(composite);
+ 
+     this.add.image(400, 300, 'image');
+ 
+-    for (var i = 0; i < 64; i++)
++    for (let i = 0; i < 64; i++)
+     {
+         var ball = this.matter.add.image(Phaser.Math.Between(100, 700), Phaser.Math.Between(-600, 0), 'ball');
+         ball.setCircle();
+         ball.setFriction(0.005);

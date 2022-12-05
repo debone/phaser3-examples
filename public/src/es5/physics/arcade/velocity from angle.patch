@@ -1,0 +1,15 @@
+Index: ../public/src/es5/physics/arcade/velocity from angle.js
+===================================================================
+--- ../public/src/es5/physics/arcade/velocity from angle.js
++++ ../public/src/es5/physics/arcade/velocity from angle.js
+@@ -16,9 +16,9 @@
+         create: create
+     }
+ };
+ 
+-new Phaser.Game(config);
++var game = new Phaser.Game(config);
+ 
+ function preload() {
+     this.load.image('backdrop', 'assets/pics/platformer-backdrop.png');
+     this.load.image('cannon_head', 'assets/tests/timer/cannon_head.png');

@@ -1,0 +1,24 @@
+Index: ../public/src/es5/physics/arcade/fps test.new
+===================================================================
+--- ../public/src/es5/physics/arcade/fps test.new
++++ ../public/src/es5/physics/arcade/fps test.new
+@@ -10,17 +10,17 @@
+         preload: preload,
+         create: create,
+         update: update
+     }
+-};
++};
+
+ var source;
+ var debug;
+ var complete = false;
+ var start = 0;
+ var end = 0;
+
+-new Phaser.Game(config);
++var game = new Phaser.Game(config);
+
+ function preload ()
+ {
+     this.load.image('flower', 'assets/sprites/flower-exo.png');

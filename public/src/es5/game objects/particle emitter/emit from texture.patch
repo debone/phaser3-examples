@@ -1,0 +1,24 @@
+Index: ../public/src/es5/game objects/particle emitter/emit from texture.js
+===================================================================
+--- ../public/src/es5/game objects/particle emitter/emit from texture.js
++++ ../public/src/es5/game objects/particle emitter/emit from texture.js
+@@ -31,13 +31,16 @@
+ 
+     var logoSource = {
+         getRandomPoint: function (vec)
+         {
++            let x;
++            let y;
++            let pixel;
+             do
+             {
+-                var x = Phaser.Math.Between(0, logo.width - 1);
+-                var y = Phaser.Math.Between(0, logo.height - 1);
+-                var pixel = textures.getPixel(x, y, 'logo');
++                x = Phaser.Math.Between(0, logo.width - 1);
++                y = Phaser.Math.Between(0, logo.height - 1);
++                pixel = textures.getPixel(x, y, 'logo');
+             } while (pixel.alpha < 255);
+ 
+             return vec.setTo(x + origin.x, y + origin.y);
+         }

@@ -1,0 +1,14 @@
+Index: ../public/src/es5/scenes/scene injection map.js
+===================================================================
+--- ../public/src/es5/scenes/scene injection map.js
++++ ../public/src/es5/scenes/scene injection map.js
+@@ -37,8 +37,8 @@
+     type: Phaser.AUTO,
+     width: 800,
+     height: 600,
+     parent: 'phaser-example',
+-    scene: MyScene
++    scene: [ MyScene ]
+ };
+ 
+ var game = new Phaser.Game(config);

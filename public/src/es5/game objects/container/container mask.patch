@@ -1,0 +1,68 @@
+Index: ../public/src/es5/game objects/container/container mask.new
+===================================================================
+--- ../public/src/es5/game objects/container/container mask.new
++++ ../public/src/es5/game objects/container/container mask.new
+@@ -19,9 +19,9 @@
+     this.load.image('mask', 'assets/pics/mask.png');
+ }
+
+
+-function create()
++function create()
+ {
+     var backdrop = this.make.image({
+         x: game.config.width / 2,
+         y: game.config.height / 2,
+@@ -45,26 +45,28 @@
+     for (var j = 0; j < 4; ++j)
+     {
+         for (var index = 0; index < count; ++index)
+         {
+-            var image = this.make.image({x: 0, y: 0, key: 'arrow', add: false});
+-            if (index === 0)
+             {
+-                lastContainer = this.make.container({x:0, y:0, add:false});
+-                containers.push(lastContainer);
+-                lastContainer.rotation += (j * 90) * Math.PI / 180;
+-                this.rootContainer.add(lastContainer);
++                let image = this.make.image({x: 0, y: 0, key: 'arrow', add: false});
++                if (index === 0)
++                {
++                    lastContainer = this.make.container({x:0, y:0, add:false});
++                    containers.push(lastContainer);
++                    lastContainer.rotation += (j * 90) * Math.PI / 180;
++                    this.rootContainer.add(lastContainer);
++                }
++                else
++                {
++                    let newContainer = this.make.container({x: image.width, y: 0, add: false});
++                    lastContainer.add(newContainer);
++                    lastContainer = newContainer;
++                    newContainer.setScale(1.0 - index / (count))
++                    newContainer.rotation = index / count * 2;
++                }
++                image.setOrigin(0, 0.5);
++                lastContainer.add(image);
+             }
+-            else
+-            {
+-                var newContainer = this.make.container({x: image.width, y: 0, add: false});
+-                lastContainer.add(newContainer);
+-                lastContainer = newContainer;
+-                newContainer.setScale(1.0 - index / (count))
+-                newContainer.rotation = index / count * 2;
+-            }
+-            image.setOrigin(0, 0.5);
+-            lastContainer.add(image);
+
+             if (index === 5 || index === 4 || index === 10)
+             {
+                 var leafContainer = lastContainer;
+@@ -122,5 +124,5 @@
+         var container = containerTails[index];
+         rotateContainer(container, 0.01);
+     }
+     this.rootContainer.rotation += 0.01;
+-}
+\ No newline at end of file
++}

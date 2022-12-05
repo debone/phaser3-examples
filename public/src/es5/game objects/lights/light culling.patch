@@ -1,0 +1,56 @@
+Index: ../public/src/es5/game objects/lights/light culling.js
+===================================================================
+--- ../public/src/es5/game objects/lights/light culling.js
++++ ../public/src/es5/game objects/lights/light culling.js
+@@ -60,16 +60,15 @@
+     text = this.add.text(10, 10, '').setDepth(1).setScrollFactor(0, 0);
+ 
+     cursors = this.input.keyboard.createCursorKeys();
+ 
+-    var i;
+     var circ = new Phaser.Geom.Circle(400, 300, 400);
+     var points = Phaser.Geom.Circle.GetPoints(circ, 12);
+ 
+-    for (i = 0; i < points.length; i++)
++    for (let i = 0; i < points.length; i++)
+     {
+-        var x = points[i].x;
+-        var y = points[i].y;
++        const x = points[i].x;
++        const y = points[i].y;
+ 
+         this.add.image(x, y, 'gem2');
+ 
+         this.lights.addLight(x, y, 128, 0xff22ff, 6);
+@@ -77,12 +76,12 @@
+ 
+     circ.setTo(400, 300, 700);
+     points = Phaser.Geom.Circle.GetPoints(circ, 20);
+ 
+-    for (i = 0; i < points.length; i++)
++    for (let i = 0; i < points.length; i++)
+     {
+-        var x = points[i].x;
+-        var y = points[i].y;
++        const x = points[i].x;
++        const y = points[i].y;
+ 
+         this.add.image(x, y, 'gem3');
+ 
+         this.lights.addLight(x, y, 128, 0x22ffff, 6);
+@@ -90,12 +89,12 @@
+ 
+     circ.setTo(400, 300, 1000);
+     points = Phaser.Geom.Circle.GetPoints(circ, 26);
+ 
+-    for (i = 0; i < points.length; i++)
++    for (let i = 0; i < points.length; i++)
+     {
+-        var x = points[i].x;
+-        var y = points[i].y;
++        const x = points[i].x;
++        const y = points[i].y;
+ 
+         this.add.image(x, y, 'gem4');
+ 
+         this.lights.addLight(x, y, 128, 0xffff22, 6);

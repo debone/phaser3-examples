@@ -1,0 +1,15 @@
+Index: ../public/src/es5/game objects/container/container and camera zoom.new
+===================================================================
+--- ../public/src/es5/game objects/container/container and camera zoom.new
++++ ../public/src/es5/game objects/container/container and camera zoom.new
+@@ -68,9 +68,9 @@
+     controls = new Phaser.Cameras.Controls.SmoothedKeyControl(controlConfig);
+
+     var cam = this.cameras.main;
+
+-    gui = new dat.GUI();
++    var gui = new dat.GUI();
+
+     var help = {
+         line1: 'Cursors to move',
+         line2: 'Q & E to zoom'

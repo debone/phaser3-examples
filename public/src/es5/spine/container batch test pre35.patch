@@ -1,0 +1,45 @@
+Index: ../public/src/es5/spine/container batch test pre35.js
+===================================================================
+--- ../public/src/es5/spine/container batch test pre35.js
++++ ../public/src/es5/spine/container batch test pre35.js
+@@ -35,36 +35,36 @@
+     //  Using `this.add.container` = 278 GL commands (4 draw calls, 4 clears)
+ 
+     let base = this.add.container();
+ 
+-    for (var i = 0; i < 32; i++)
++    for (let i = 0; i < 32; i++)
+     {
+         let obj = this.add.spine(i * 64, 100, 'boy', 'idle', true).setScale(0.25);
+ 
+         base.add(obj)
+     }
+ 
+     let base2 = this.add.container();
+ 
+-    for (var i = 0; i < 32; i++)
++    for (let i = 0; i < 32; i++)
+     {
+         let obj = this.add.spine(i * 64, 300, 'boy', 'walk', true).setScale(0.25);
+ 
+         base2.add(obj)
+     }
+ 
+     let base3 = this.add.container();
+ 
+-    for (var i = 0; i < 32; i++)
++    for (let i = 0; i < 32; i++)
+     {
+         let obj = this.add.spine(i * 64, 500, 'boy', 'run', true).setScale(0.25);
+ 
+         base3.add(obj)
+     }
+ 
+     let base4 = this.add.container();
+ 
+-    for (var i = 0; i < 32; i++)
++    for (let i = 0; i < 32; i++)
+     {
+         let obj = this.add.spine(i * 64, 700, 'boy', 'jump', true).setScale(0.25);
+ 
+         base4.add(obj)

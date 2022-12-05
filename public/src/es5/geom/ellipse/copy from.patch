@@ -1,0 +1,32 @@
+Index: ../public/src/es5/geom/ellipse/copy from.js
+===================================================================
+--- ../public/src/es5/geom/ellipse/copy from.js
++++ ../public/src/es5/geom/ellipse/copy from.js
+@@ -11,15 +11,15 @@
+ var game = new Phaser.Game(config);
+ 
+ function create ()
+ {
+-    graphics = this.add.graphics({ lineStyle: { width: 2, color: 0x00aaaa } });
++    var graphics = this.add.graphics({ lineStyle: { width: 2, color: 0x00aaaa } });
+ 
+-    pointerEllipse = new Phaser.Geom.Ellipse(400, 300, 400, 300);
++    var pointerEllipse = new Phaser.Geom.Ellipse(400, 300, 400, 300);
+ 
+-    ellipses = [];
++    var ellipses = [];
+ 
+-    for(var i = 0; i < 30; i++)
++    for(let k = 0; k < 30; k++)
+     {
+         ellipses.push(new Phaser.Geom.Ellipse(0, 0, 0, 0));
+     }
+ 
+@@ -47,5 +47,5 @@
+ 
+         }
+ 
+     });
+-}
+\ No newline at end of file
++}

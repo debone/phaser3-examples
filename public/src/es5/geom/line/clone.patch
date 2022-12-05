@@ -1,0 +1,14 @@
+Index: ../public/src/es5/geom/line/clone.js
+===================================================================
+--- ../public/src/es5/geom/line/clone.js
++++ ../public/src/es5/geom/line/clone.js
+@@ -11,8 +11,9 @@
+ 
+ var game = new Phaser.Game(config);
+ var graphics;
+ var line;
++var lines;
+ 
+ function create ()
+ {
+     graphics = this.add.graphics({ lineStyle: { width: 4, color: 0xaa00aa, alpha: 0.6 } });

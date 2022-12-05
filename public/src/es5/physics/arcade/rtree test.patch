@@ -1,0 +1,14 @@
+Index: ../public/src/es5/physics/arcade/rtree test.js
+===================================================================
+--- ../public/src/es5/physics/arcade/rtree test.js
++++ ../public/src/es5/physics/arcade/rtree test.js
+@@ -16,8 +16,9 @@
+     }
+ };
+ 
+ var controls;
++var cursors;
+ var player;
+ var group;
+ 
+ var game = new Phaser.Game(config);

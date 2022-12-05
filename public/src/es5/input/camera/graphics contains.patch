@@ -1,0 +1,14 @@
+Index: ../public/src/es5/input/camera/graphics contains.js
+===================================================================
+--- ../public/src/es5/input/camera/graphics contains.js
++++ ../public/src/es5/input/camera/graphics contains.js
+@@ -10,8 +10,9 @@
+     }
+ };
+ 
+ var gui;
++var controls;
+ var graphics;
+ var bounds;
+ var rect1;
+ var rect2;

@@ -1,0 +1,18 @@
+Index: ../public/src/es5/geom/triangle/decompose.js
+===================================================================
+--- ../public/src/es5/geom/triangle/decompose.js
++++ ../public/src/es5/geom/triangle/decompose.js
+@@ -11,11 +11,11 @@
+ var game = new Phaser.Game(config);
+ 
+ function create ()
+ {
+-    graphics = this.add.graphics({ lineStyle: { width: 2, color: 0xaaaa00 } });
++    var graphics = this.add.graphics({ lineStyle: { width: 2, color: 0xaaaa00 } });
+ 
+-    triangle = new Phaser.Geom.Triangle.BuildEquilateral(400, 25, 300);
++    var triangle = new Phaser.Geom.Triangle.BuildEquilateral(400, 25, 300);
+ 
+     var points = Phaser.Geom.Triangle.Decompose(triangle);
+ 
+     var angle = 0;

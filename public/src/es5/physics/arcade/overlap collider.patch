@@ -1,0 +1,15 @@
+Index: ../public/src/es5/physics/arcade/overlap collider.new
+===================================================================
+--- ../public/src/es5/physics/arcade/overlap collider.new
++++ ../public/src/es5/physics/arcade/overlap collider.new
+@@ -17,9 +17,9 @@
+
+ var sprite;
+ var group;
+
+-new Phaser.Game(config);
++var game = new Phaser.Game(config);
+
+ function preload ()
+ {
+     this.load.image('mushroom', 'assets/sprites/mushroom2.png');

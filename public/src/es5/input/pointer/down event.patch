@@ -1,0 +1,15 @@
+Index: ../public/src/es5/input/pointer/down event.js
+===================================================================
+--- ../public/src/es5/input/pointer/down event.js
++++ ../public/src/es5/input/pointer/down event.js
+@@ -11,8 +11,10 @@
+ };
+ 
+ var game = new Phaser.Game(config);
+ 
++var text;
++
+ function preload ()
+ {
+     this.load.spritesheet('balls', 'assets/sprites/balls.png', { frameWidth: 17, frameHeight: 17 });
+ }

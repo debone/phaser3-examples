@@ -1,0 +1,14 @@
+Index: ../public/src/es5/scalemanager/full screen game.js
+===================================================================
+--- ../public/src/es5/scalemanager/full screen game.js
++++ ../public/src/es5/scalemanager/full screen game.js
+@@ -178,8 +178,8 @@
+             gravity: { y: 300 },
+             debug: false
+         }
+     },
+-    scene: GameScene
++    scene: [ GameScene ]
+ };
+ 
+ var game = new Phaser.Game(config);

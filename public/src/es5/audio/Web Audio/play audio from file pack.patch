@@ -1,0 +1,15 @@
+Index: ../public/src/es5/audio/Web Audio/play audio from file pack.new
+===================================================================
+--- ../public/src/es5/audio/Web Audio/play audio from file pack.new
++++ ../public/src/es5/audio/Web Audio/play audio from file pack.new
+@@ -25,9 +25,9 @@
+
+     music.play();
+ }
+
+-var FilePackObject = {
++const FilePackObject = {
+     "pack": {
+         "files": [
+             {
+                 "type": "audio",

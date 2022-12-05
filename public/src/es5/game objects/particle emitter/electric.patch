@@ -1,0 +1,15 @@
+Index: ../public/src/es5/game objects/particle emitter/electric.js
+===================================================================
+--- ../public/src/es5/game objects/particle emitter/electric.js
++++ ../public/src/es5/game objects/particle emitter/electric.js
+@@ -31,9 +31,9 @@
+     var controlPoint1 = new Phaser.Math.Vector2(610, 25);
+     var controlPoint2 = new Phaser.Math.Vector2(320, 370);
+     var endPoint = new Phaser.Math.Vector2(735, 550);
+ 
+-    curve = new Phaser.Curves.CubicBezier(startPoint, controlPoint1, controlPoint2, endPoint);
++    var curve = new Phaser.Curves.CubicBezier(startPoint, controlPoint1, controlPoint2, endPoint);
+ 
+     var spark0 = this.add.particles('spark0');
+     var spark1 = this.add.particles('spark1');
+ 

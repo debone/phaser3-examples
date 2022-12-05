@@ -1,0 +1,18 @@
+Index: ../public/src/es5/game objects/particle emitter/death zone from arcade body.js
+===================================================================
+--- ../public/src/es5/game objects/particle emitter/death zone from arcade body.js
++++ ../public/src/es5/game objects/particle emitter/death zone from arcade body.js
+@@ -23,12 +23,9 @@
+ 
+ function create ()
+ {
+     var source = {
+-        contains: function (x, y)
+-        {
+-            return block.body.hitTest(x, y);
+-        }
++        contains: (x, y) => block.body.hitTest(x, y)
+     };
+ 
+     var particles = this.add.particles('flares');
+ 

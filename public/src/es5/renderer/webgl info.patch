@@ -1,0 +1,25 @@
+Index: ../public/src/es5/renderer/webgl info.js
+===================================================================
+--- ../public/src/es5/renderer/webgl info.js
++++ ../public/src/es5/renderer/webgl info.js
+@@ -17,18 +17,18 @@
+     this.add.text(10, 60, [ 'Supported Extensions', '--------------------', '' ].concat(this.renderer.supportedExtensions), style);
+ 
+     var config = [];
+ 
+-    for (var key in this.renderer.config)
++    for (let key in this.renderer.config)
+     {
+         config.push(key + ': ' + this.renderer.config[key]);
+     }
+ 
+     this.add.text(500, 60, [ 'Renderer Config', '---------------', '' ].concat(config), style);
+ 
+     var compression = [];
+ 
+-    for (var key in this.renderer.compression)
++    for (let key in this.renderer.compression)
+     {
+         compression.push(key + ': ' + this.renderer.compression[key]);
+     }
+ 

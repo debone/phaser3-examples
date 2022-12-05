@@ -1,0 +1,15 @@
+Index: ../public/src/es5/game objects/render texture/draw on texture.js
+===================================================================
+--- ../public/src/es5/game objects/render texture/draw on texture.js
++++ ../public/src/es5/game objects/render texture/draw on texture.js
+@@ -64,10 +64,8 @@
+         x: 128,
+         y: 128
+     });
+ 
+-    var i = 0;
+-
+     blocks.children.iterate(function (child) {
+ 
+         this.tweens.add({
+             targets: child,

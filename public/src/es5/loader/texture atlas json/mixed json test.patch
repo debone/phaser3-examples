@@ -1,0 +1,15 @@
+Index: ../public/src/es5/loader/texture atlas json/mixed json test.js
+===================================================================
+--- ../public/src/es5/loader/texture atlas json/mixed json test.js
++++ ../public/src/es5/loader/texture atlas json/mixed json test.js
+@@ -32,9 +32,9 @@
+         this.add.image(x, y, 'megaset', frames[i]);
+     }
+ }
+ 
+-var atlasJSON = {"frames": [
++const atlasJSON = {"frames": [
+     {
+         "filename": "128x128",
+         "frame": {"x":893,"y":342,"w":128,"h":128},
+         "rotated": false,

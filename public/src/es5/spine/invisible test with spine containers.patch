@@ -1,0 +1,48 @@
+Index: ../public/src/es5/spine/invisible test with spine containers.js
+===================================================================
+--- ../public/src/es5/spine/invisible test with spine containers.js
++++ ../public/src/es5/spine/invisible test with spine containers.js
+@@ -30,9 +30,9 @@
+ function create ()
+ {
+     let base = this.add.spineContainer();
+ 
+-    for (var i = 0; i < 32; i++)
++    for (let i = 0; i < 32; i++)
+     {
+         let obj = this.add.spine(i * 64, 100, 'boy', 'idle', true).setScale(0.25);
+ 
+         if (i % 2 === 0)
+@@ -44,9 +44,9 @@
+     }
+ 
+     let base2 = this.add.spineContainer();
+ 
+-    for (var i = 0; i < 32; i++)
++    for (let i = 0; i < 32; i++)
+     {
+         let obj = this.add.spine(i * 64, 300, 'boy', 'walk', true).setScale(0.25);
+ 
+         if (i % 2 === 0)
+@@ -58,9 +58,9 @@
+     }
+ 
+     let base3 = this.add.spineContainer();
+ 
+-    for (var i = 0; i < 32; i++)
++    for (let i = 0; i < 32; i++)
+     {
+         let obj = this.add.spine(i * 64, 500, 'boy', 'run', true).setScale(0.25);
+ 
+         if (i % 2 === 0)
+@@ -72,9 +72,9 @@
+     }
+ 
+     let base4 = this.add.spineContainer();
+ 
+-    for (var i = 0; i < 32; i++)
++    for (let i = 0; i < 32; i++)
+     {
+         let obj = this.add.spine(i * 64, 700, 'boy', 'jump', true).setScale(0.25);
+ 
+         if (i % 2 === 0)

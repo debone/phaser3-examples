@@ -1,0 +1,26 @@
+Index: ../public/src/es5/game objects/container/container input test.new
+===================================================================
+--- ../public/src/es5/game objects/container/container input test.new
++++ ../public/src/es5/game objects/container/container input test.new
+@@ -26,9 +26,9 @@
+         frameRate: 20,
+         repeat: -1
+     });
+
+-    container = this.add.container(-100, 0);
++    var container = this.add.container(-100, 0);
+
+     container.setScale(2);
+
+     var sprites = [];
+@@ -49,9 +49,9 @@
+             x -= 100;
+             y = 50;
+         }
+     }
+-
++
+     container.add(sprites);
+
+     this.tweens.add({
+         targets: container,

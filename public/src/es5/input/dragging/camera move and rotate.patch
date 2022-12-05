@@ -1,0 +1,14 @@
+Index: ../public/src/es5/input/dragging/camera move and rotate.js
+===================================================================
+--- ../public/src/es5/input/dragging/camera move and rotate.js
++++ ../public/src/es5/input/dragging/camera move and rotate.js
+@@ -10,8 +10,9 @@
+     }
+ };
+ 
+ var cards;
++var controls;
+ 
+ var game = new Phaser.Game(config);
+ 
+ function preload ()

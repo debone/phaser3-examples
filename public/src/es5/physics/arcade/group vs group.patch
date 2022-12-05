@@ -1,0 +1,15 @@
+Index: ../public/src/es5/physics/arcade/group vs group.new
+===================================================================
+--- ../public/src/es5/physics/arcade/group vs group.new
++++ ../public/src/es5/physics/arcade/group vs group.new
+@@ -14,9 +14,9 @@
+         create: create
+     }
+ };
+
+-new Phaser.Game(config);
++var game = new Phaser.Game(config);
+
+ function preload()
+ {
+     this.load.image('ball', 'assets/sprites/shinyball.png');

@@ -1,0 +1,15 @@
+Index: ../public/src/es5/physics/matterjs/100 world bodies.js
+===================================================================
+--- ../public/src/es5/physics/matterjs/100 world bodies.js
++++ ../public/src/es5/physics/matterjs/100 world bodies.js
+@@ -84,9 +84,9 @@
+     }, 0, this);
+ 
+     var cam = this.cameras.main;
+ 
+-    gui = new dat.GUI();
++    var gui = new dat.GUI();
+ 
+     var p1 = gui.addFolder('Pointer');
+     p1.add(this.input, 'x').listen();
+     p1.add(this.input, 'y').listen();

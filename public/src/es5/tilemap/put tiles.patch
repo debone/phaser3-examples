@@ -1,0 +1,47 @@
+Index: ../public/src/es5/tilemap/put tiles.js
+===================================================================
+--- ../public/src/es5/tilemap/put tiles.js
++++ ../public/src/es5/tilemap/put tiles.js
+@@ -15,8 +15,9 @@
+ var game = new Phaser.Game(config);
+ var marker;
+ var map;
+ var objectToPlace = 'platform';
++var helpText;
+ 
+ function preload ()
+ {
+     this.load.image('tiles', 'assets/tilemaps/tiles/platformer_tiles.png');
+@@ -35,28 +36,28 @@
+     layer.fill(58, 0, 13, 25, 1); // Surface of the water
+     layer.fill(77, 0, 14, 25, 5); // Body of the water
+     layer.randomize(0, 0, 25, 13, [ 44, 45, 46, 47, 48 ]); // Wall above the water
+ 
+-    this.input.keyboard.on('keydown-ONE', function (event) {
++    this.input.keyboard.on('keydown-ONE', (event) => {
+         objectToPlace = 'platform';
+         helpText.setText(getHelpMessage());
+     });
+ 
+-    this.input.keyboard.on('keydown-TWO', function (event) {
++    this.input.keyboard.on('keydown-TWO', (event) => {
+         objectToPlace = 'flower';
+         helpText.setText(getHelpMessage());
+     });
+ 
+-    this.input.keyboard.on('keydown-THREE', function (event) {
++    this.input.keyboard.on('keydown-THREE', (event) => {
+         objectToPlace = 'tiki';
+         helpText.setText(getHelpMessage());
+     });
+ 
+     marker = this.add.graphics();
+     marker.lineStyle(2, 0x000000, 1);
+     marker.strokeRect(0, 0, map.tileWidth * layer.scaleX, map.tileHeight * layer.scaleY);
+ 
+-    var helpText = this.add.text(16, 16, getHelpMessage(), {
++    helpText = this.add.text(16, 16, getHelpMessage(), {
+         fontSize: '18px',
+         padding: { x: 10, y: 5 },
+         fill: '#ffffff',
+         backgroundColor: '#000000'

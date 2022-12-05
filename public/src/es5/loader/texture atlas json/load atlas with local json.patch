@@ -1,0 +1,15 @@
+Index: ../public/src/es5/loader/texture atlas json/load atlas with local json.js
+===================================================================
+--- ../public/src/es5/loader/texture atlas json/load atlas with local json.js
++++ ../public/src/es5/loader/texture atlas json/load atlas with local json.js
+@@ -29,9 +29,9 @@
+         this.add.image(x, y, 'megaset', frames[i]);
+     }
+ }
+ 
+-var atlasJSON = {"frames": [
++const atlasJSON = {"frames": [
+     {
+         "filename": "128x128",
+         "frame": {"x":893,"y":342,"w":128,"h":128},
+         "rotated": false,

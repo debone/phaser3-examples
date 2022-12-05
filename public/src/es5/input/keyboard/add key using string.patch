@@ -1,0 +1,15 @@
+Index: ../public/src/es5/input/keyboard/add key using string.js
+===================================================================
+--- ../public/src/es5/input/keyboard/add key using string.js
++++ ../public/src/es5/input/keyboard/add key using string.js
+@@ -17,8 +17,10 @@
+ var imageS;
+ var imageE;
+ var imageR;
+ 
++var text;
++
+ var game = new Phaser.Game(config);
+ 
+ function preload ()
+ {

@@ -1,0 +1,37 @@
+Index: ../public/src/es5/paths/followers/wave path.js
+===================================================================
+--- ../public/src/es5/paths/followers/wave path.js
++++ ../public/src/es5/paths/followers/wave path.js
+@@ -23,9 +23,9 @@
+     var graphics = this.add.graphics();
+ 
+     var path = new Phaser.Curves.Path(0, 300);
+ 
+-    for (var i = 0; i < 8; i++)
++    for (let i = 0; i < 8; i++)
+     {
+         // xRadius, yRadius, startAngle, endAngle, clockwise, rotation
+         if (i % 2 === 0)
+         {
+@@ -40,17 +40,18 @@
+     graphics.lineStyle(1, 0xffffff, 1);
+ 
+     path.draw(graphics);
+ 
+-    for (var i = 0; i < 20; i++)
++    for (let i = 0; i < 20; i++)
+     {
++        let follower;
+         if (i === 0)
+         {
+-            var follower = this.add.follower(path, 100, 100 + (30 * i), 'eyes').setDepth(50);
++            follower = this.add.follower(path, 100, 100 + (30 * i), 'eyes').setDepth(50);
+         }
+         else
+         {
+-            var follower = this.add.follower(path, 100, 100 + (30 * i), 'orb');
++            follower = this.add.follower(path, 100, 100 + (30 * i), 'orb');
+             follower.setBlendMode(Phaser.BlendModes.ADD);
+             follower.setScale(0.5);
+         }
+ 

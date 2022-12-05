@@ -1,0 +1,12 @@
+Index: ../public/src/es5/game objects/particle emitter/dynamic emitter config property.js
+===================================================================
+--- ../public/src/es5/game objects/particle emitter/dynamic emitter config property.js
++++ ../public/src/es5/game objects/particle emitter/dynamic emitter config property.js
+@@ -35,6 +35,6 @@
+         lifespan: 3000,
+         rotate: { onEmit: function () { return customAngle; } },
+     });
+ 
+-    text = this.add.text(10, 10, 'Click to change particle angle', { font: '16px Courier', fill: '#ffffff' });
++    var text = this.add.text(10, 10, 'Click to change particle angle', { font: '16px Courier', fill: '#ffffff' });
+ }

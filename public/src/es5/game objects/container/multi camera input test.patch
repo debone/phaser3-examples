@@ -1,0 +1,15 @@
+Index: ../public/src/es5/game objects/container/multi camera input test.new
+===================================================================
+--- ../public/src/es5/game objects/container/multi camera input test.new
++++ ../public/src/es5/game objects/container/multi camera input test.new
+@@ -80,9 +80,9 @@
+     var cursors = this.input.keyboard.createCursorKeys();
+
+     var camControl = (Phaser.Cameras.Controls.Smoothed) ? Phaser.Cameras.Controls.Smoothed : Phaser.Cameras.Controls.SmoothedKeyControl;
+
+-    controls = new camControl({
++    var controls = new camControl({
+         camera: cam1,
+         left: cursors.left,
+         right: cursors.right,
+         up: cursors.up,

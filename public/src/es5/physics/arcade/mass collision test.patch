@@ -1,0 +1,14 @@
+Index: ../public/src/es5/physics/arcade/mass collision test.js
+===================================================================
+--- ../public/src/es5/physics/arcade/mass collision test.js
++++ ../public/src/es5/physics/arcade/mass collision test.js
+@@ -17,8 +17,9 @@
+     }
+ };
+ 
+ var controls;
++var cursors;
+ var player;
+ var group;
+ var spriteBounds;
+ var text;

@@ -1,0 +1,15 @@
+Index: ../public/src/es5/game objects/lights/render texture light.js
+===================================================================
+--- ../public/src/es5/game objects/lights/render texture light.js
++++ ../public/src/es5/game objects/lights/render texture light.js
+@@ -19,9 +19,9 @@
+ }
+ 
+ function create ()
+ {
+-    brick = this.add.sprite(0, 0, 'brick');
++    var brick = this.add.sprite(0, 0, 'brick');
+     brick.setOrigin(0.0);
+     brick.setPipeline('Light2D');
+ 
+     var rt = this.add.renderTexture(0, 0, 800, 600).setPipeline('Light2D');

@@ -1,0 +1,43 @@
+Index: ../public/src/es5/paths/curves/rectangle spline intersection.js
+===================================================================
+--- ../public/src/es5/paths/curves/rectangle spline intersection.js
++++ ../public/src/es5/paths/curves/rectangle spline intersection.js
+@@ -75,11 +75,11 @@
+ 
+             left = -1;
+             right = -1;
+ 
+-            for (var i = 0; i < points.length; i++)
++            for (let i = 0; i < points.length; i++)
+             {
+-                var p = points[i];
++                const p = points[i];
+ 
+                 if (p.x > spriteBounds.x)
+                 {
+                     left = i - 1;
+@@ -92,11 +92,11 @@
+                     break;
+                 }
+             }
+ 
+-            for (var i = points.length - 1; i >= left; i--)
++            for (let i = points.length - 1; i >= left; i--)
+             {
+-                var p = points[i];
++                const p = points[i];
+ 
+                 if (p.x < spriteBounds.right)
+                 {
+                     right = i + 1;
+@@ -121,9 +121,9 @@
+ 
+             //  Rect vs. Line intersection between left and right
+             var temp = new Phaser.Geom.Line();
+ 
+-            for (var i = left; i < right; i++)
++            for (let i = left; i < right; i++)
+             {
+                 var p1 = points[i];
+                 var p2 = points[i + 1];
+ 

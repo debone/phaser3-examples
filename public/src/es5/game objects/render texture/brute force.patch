@@ -1,0 +1,23 @@
+Index: ../public/src/es5/game objects/render texture/brute force.js
+===================================================================
+--- ../public/src/es5/game objects/render texture/brute force.js
++++ ../public/src/es5/game objects/render texture/brute force.js
+@@ -31,9 +31,9 @@
+ }
+ 
+ function update()
+ {
+-    for (i = 0; i < 20; i++)
++    for (var i = 0; i < 20; i++)
+     {
+         draw();
+     }
+ 
+@@ -49,5 +49,5 @@
+     var tint = (0x00ffff * (rnd() * 0.1 + 0.8));
+     var frame = ~~(rnd() * 22);
+ 
+     rt.drawFrame("matrix", frame, rnd() * 800, rnd() * 600, alpha, tint);
+-}
+\ No newline at end of file
++}

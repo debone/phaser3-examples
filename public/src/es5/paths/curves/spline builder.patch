@@ -1,0 +1,14 @@
+Index: ../public/src/es5/paths/curves/spline builder.js
+===================================================================
+--- ../public/src/es5/paths/curves/spline builder.js
++++ ../public/src/es5/paths/curves/spline builder.js
+@@ -14,8 +14,9 @@
+ var parts = 8;
+ var path;
+ var curve;
+ var handles;
++var ball;
+ var graphics;
+ 
+ var game = new Phaser.Game(config);
+ 

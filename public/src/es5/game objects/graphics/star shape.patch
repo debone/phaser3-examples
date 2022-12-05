@@ -1,0 +1,15 @@
+Index: ../public/src/es5/game objects/graphics/star shape.js
+===================================================================
+--- ../public/src/es5/game objects/graphics/star shape.js
++++ ../public/src/es5/game objects/graphics/star shape.js
+@@ -30,9 +30,9 @@
+     graphics.fillStyle(color, 1);
+     graphics.beginPath();
+     graphics.moveTo(cx, cy - outerRadius);
+ 
+-    for (i = 0; i < spikes; i++)
++    for (var i = 0; i < spikes; i++)
+     {
+         x = cx + Math.cos(rot) * outerRadius;
+         y = cy + Math.sin(rot) * outerRadius;
+         graphics.lineTo(x, y);

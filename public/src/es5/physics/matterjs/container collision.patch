@@ -1,0 +1,15 @@
+Index: ../public/src/es5/physics/matterjs/container collision.js
+===================================================================
+--- ../public/src/es5/physics/matterjs/container collision.js
++++ ../public/src/es5/physics/matterjs/container collision.js
+@@ -32,9 +32,9 @@
+     var image1 = this.add.image(0, -30, 'mushroom');
+     var image2 = this.add.image(-40, 30, 'mushroom');
+     var image3 = this.add.image(40, 30, 'mushroom');
+ 
+-    container = this.add.container(400, 300, [ image1, image2, image3 ]);
++    var container = this.add.container(400, 300, [ image1, image2, image3 ]);
+ 
+     //  A Container has a default size of 0x0
+     //  so we need to give it a size before enabling a physics body
+     container.setSize(128, 64);

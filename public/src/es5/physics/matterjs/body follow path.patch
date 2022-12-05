@@ -1,0 +1,15 @@
+Index: ../public/src/es5/physics/matterjs/body follow path.js
+===================================================================
+--- ../public/src/es5/physics/matterjs/body follow path.js
++++ ../public/src/es5/physics/matterjs/body follow path.js
+@@ -35,9 +35,9 @@
+ }
+ 
+ function create ()
+ {
+-    graphics = this.add.graphics();
++    var graphics = this.add.graphics();
+ 
+     // let line = new Phaser.Geom.Line(Phaser.Math.Between(100, 700), Phaser.Math.Between(100, 500), Phaser.Math.Between(100, 700), Phaser.Math.Between(100, 500));
+ 
+     let line = new Phaser.Geom.Line(100, 500, 700, 100);

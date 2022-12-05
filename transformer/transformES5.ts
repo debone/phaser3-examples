@@ -1,14 +1,18 @@
-import fs from "fs-extra";
-import nodeFs from "fs";
-import path from "path";
-
 import puppeteer from "puppeteer";
 
 import { transform as lebabTransform } from "lebab";
 
-import { getExamples, getPatchedVersion, writeToEs6 } from "./utils.js";
+import {
+    generateES5Examples,
+    getExamples,
+    getPatchedVersion,
+    writeToEs6,
+} from "./utils.js";
 import { Example, processExample } from "./utilsBrowser.js";
 import { codemod } from "./codemod.js";
+
+// Recreates the ES5 examples and add the patch files if needed
+generateES5Examples("../public/src/3.60");
 
 let examples: any[] = [];
 

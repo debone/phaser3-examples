@@ -1,10 +1,8 @@
 import jscodeshift, {
     Collection,
     Identifier,
-    Program,
     VariableDeclarator,
 } from "jscodeshift";
-import { filters } from "jscodeshift/src/collections/JSXElement";
 
 const j = jscodeshift;
 
@@ -202,80 +200,110 @@ export const codemod = (code: string): string => {
     } else if (sceneConfig.get().value.value.type === "ArrayExpression") {
         // console.log("ArrayExpression");
         // throw new Error("Unhandled scene config object");
-
-        // Arrays should need better care than this... but I'm betting on manual changes not
-        // Phaser.Class
-        root.find(j.NewExpression)
-            .filter((path) => {
-                const c = path.value.callee;
-                if (c.type === "MemberExpression") {
-                    return (
-                        c.object.type === "Identifier" &&
-                        c.object.name === "Phaser" &&
-                        c.property.type === "Identifier" &&
-                        c.property.name === "Class"
-                    );
-                }
-                return false;
-            })
-            .forEach((path) => {
-                const name = path.parentPath.value.id;
-
-                if (path.value.arguments[0].type !== "ObjectExpression") {
-                    throw new Error("Unhandled Phaser.Class configuration");
-                }
-
-                const classProperties = path.value.arguments[0].properties;
-
-                const classMethods = classProperties
-                    .filter(
-                        (prop) =>
-                            prop.type === "Property" &&
-                            prop.value.type === "FunctionExpression"
-                    )
-                    .map((fn) => {
-                        if (
-                            fn.type !== "Property" ||
-                            fn.value.type !== "FunctionExpression"
-                        ) {
-                            throw new Error(
-                                "Unhandled Phaser.Class configuration"
-                            );
-                        }
-                        return j.methodDefinition(
-                            "method",
-                            fn.key,
-                            fn.value,
-                            false
-                        );
-                    });
-
-                const extend = classProperties.find(
-                    (prop) =>
-                        prop.type === "Property" &&
-                        prop.key.type === "Identifier" &&
-                        prop.key.name === "Extends"
-                );
-
-                if (
-                    extend.type !== "Property" ||
-                    extend.value.type !== "MemberExpression"
-                ) {
-                    throw new Error("Unhandled Phaser.Class configuration");
-                }
-
-                j(path.parentPath.parentPath.parentPath).replaceWith(
-                    j.classDeclaration(
-                        name,
-                        j.classBody(classMethods),
-                        extend.value
-                    )
-                );
-            });
     } else {
         console.log("Unknown");
         throw new Error("Unhandled scene config object");
     }
+
+    // Phaser.Class
+    root.find(j.NewExpression)
+        .filter((path) => {
+            const c = path.value.callee;
+            if (c.type === "MemberExpression") {
+                return (
+                    c.object.type === "Identifier" &&
+                    c.object.name === "Phaser" &&
+                    c.property.type === "Identifier" &&
+                    c.property.name === "Class"
+                );
+            }
+            return false;
+        })
+        .forEach((path) => {
+            const name = path.parentPath.value.id;
+
+            if (path.value.arguments[0].type !== "ObjectExpression") {
+                throw new Error("Unhandled Phaser.Class configuration");
+            }
+
+            const classProperties = path.value.arguments[0].properties;
+
+            const classMethods = classProperties
+                .filter(
+                    (prop) =>
+                        prop.type === "Property" &&
+                        prop.value.type === "FunctionExpression"
+                )
+                .map((fn) => {
+                    if (
+                        fn.type !== "Property" ||
+                        fn.value.type !== "FunctionExpression"
+                    ) {
+                        throw new Error("Unhandled Phaser.Class configuration");
+                    }
+
+                    // Swapping initializer for a constructor
+                    if (
+                        fn.key.type === "Identifier" &&
+                        fn.key.name === "initialize"
+                    ) {
+                        const phaserSceneCallExpression = j(fn)
+                            .find(j.CallExpression)
+                            .get();
+                        const probablyPhaserSceneCallArguments =
+                            phaserSceneCallExpression.value.arguments[1];
+                        j(phaserSceneCallExpression.parentPath).remove();
+
+                        return j.methodDefinition(
+                            "constructor",
+                            j.identifier("constructor"),
+                            j.functionExpression(
+                                null,
+                                [],
+                                j.blockStatement([
+                                    j.expressionStatement(
+                                        j.callExpression(
+                                            j.identifier("super"),
+                                            [probablyPhaserSceneCallArguments]
+                                        )
+                                    ),
+                                    ...fn.value.body.body,
+                                ])
+                            ),
+                            false
+                        );
+                    }
+
+                    return j.methodDefinition(
+                        "method",
+                        fn.key,
+                        fn.value,
+                        false
+                    );
+                });
+
+            const extend = classProperties.find(
+                (prop) =>
+                    prop.type === "Property" &&
+                    prop.key.type === "Identifier" &&
+                    prop.key.name === "Extends"
+            );
+
+            if (
+                extend.type !== "Property" ||
+                extend.value.type !== "MemberExpression"
+            ) {
+                throw new Error("Unhandled Phaser.Class configuration");
+            }
+
+            j(path.parentPath.parentPath.parentPath).replaceWith(
+                j.classDeclaration(
+                    name,
+                    j.classBody(classMethods),
+                    extend.value
+                )
+            );
+        });
 
     // Global variables go to the example class
     root.find(j.VariableDeclaration)
@@ -323,7 +351,8 @@ export const codemod = (code: string): string => {
 
                     if (
                         path.parentPath.value.type === "VariableDeclarator" ||
-                        path.parentPath.value.type === "Property"
+                        (path.parentPath.value.type === "Property" &&
+                            path.name === "key")
                     ) {
                         return false;
                     }
@@ -404,7 +433,8 @@ export const codemod = (code: string): string => {
                 .filter((path) => {
                     if (
                         path.parentPath.value.type === "VariableDeclarator" ||
-                        path.parentPath.value.type === "Property"
+                        (path.parentPath.value.type === "Property" &&
+                            path.name === "key")
                     ) {
                         return false;
                     }

@@ -6,95 +6,6 @@ import jscodeshift, {
 
 const j = jscodeshift;
 
-/*
-function transformer(file, api) {
-    const exampleClass = j.classDeclaration(
-        j.identifier("Example"),
-        j.classBody([
-            j.methodDefinition(
-                "constructor",
-                j.identifier("constructor"),
-                j.functionExpression(
-                    null,
-                    [],
-                    j.blockStatement([
-                        j.expressionStatement(
-                            j.callExpression(j.identifier("super"), [])
-                        ),
-                    ])
-                ),
-                false
-            ),
-        ]),
-        j.memberExpression(j.identifier("Phaser"), j.identifier("Scene"))
-    );
-
-    // Naive add example class
-    root.get().node.program.body.unshift(exampleClass);
-
-    // Naive find globals and add to class
-    root.find(j.VariableDeclaration, { kind: "let" }).forEach((path) => {
-        // naive simple let
-        const declaration = path.value.declarations[0];
-
-        const { name: memberName } = declaration.id;
-        const { init: memberValue } = declaration.id;
-
-        // Modifies all the identifiers to it
-        root.find(j.Identifier, {
-            name: memberName,
-        }).forEach((p) => {
-            j(p).replaceWith(
-                j.memberExpression(j.thisExpression(), j.identifier(memberName))
-            );
-        });
-
-        j(exampleClass)
-            .find(j.MethodDefinition, {
-                key: {
-                    type: "Identifier",
-                    name: "constructor",
-                },
-            })
-            .forEach((path) => {
-                const { body: constructorBody } = path.value.value.body;
-                constructorBody.push(
-                    j.expressionStatement(
-                        j.assignmentExpression(
-                            "=",
-                            j.memberExpression(
-                                j.thisExpression(),
-                                j.identifier(memberName)
-                            ),
-                            j.literal("")
-                        )
-                    )
-                );
-            });
-
-        j(path).remove();
-    });
-
-    // Naive move all function calls into the Example calss
-    root.find(j.FunctionDeclaration, {
-        id: {
-            type: "Identifier",
-        },
-    }).forEach((path) => {
-        exampleClass.body.body.push(
-            j.methodDefinition(
-                "method",
-                path.value.id,
-                j.functionExpression(null, path.value.params, path.value.body),
-                false
-            )
-        );
-        j(path).remove();
-    });
-
-    return root.toSource();
-} */
-
 export const codemod = (code: string): string => {
     const root = j(code);
 
@@ -121,14 +32,6 @@ export const codemod = (code: string): string => {
         return j(path).closestScope().isOfType(j.Program);
     });
 
-    /*const sceneConfi2g = config.find(j.Property, {
-        key(identifier) {
-            return (
-                identifier.type === "Identifier" && identifier.name === "scene"
-            );
-        },
-    });*/
-
     const sceneConfig = config.find(j.Property, {
         key: {
             type: "Identifier",
@@ -139,22 +42,7 @@ export const codemod = (code: string): string => {
     if (sceneConfig.get().value.value.type === "ObjectExpression") {
         exampleClass = j.classDeclaration(
             j.identifier("Example"),
-            j.classBody([
-                /*j.methodDefinition(
-                    "constructor",
-                    j.identifier("constructor"),
-                    j.functionExpression(
-                        null,
-                        [],
-                        j.blockStatement([
-                            j.expressionStatement(
-                                j.callExpression(j.identifier("super"), [])
-                            ),
-                        ])
-                    ),
-                    false
-                ),*/
-            ]),
+            j.classBody([]),
             //TODO: Maybe this will take the name of the class if there's one already?
             j.memberExpression(j.identifier("Phaser"), j.identifier("Scene"))
         );
@@ -374,41 +262,8 @@ export const codemod = (code: string): string => {
 
             exampleClass.body.body.unshift(
                 j.classProperty(j.identifier(memberName), memberValue)
-            ); /*
-                j.expressionStatement(
-                    j.assignmentExpression(
-                        "=",
-                        j.memberExpression(
-                            j.thisExpression(),
-                            j.identifier(memberName)
-                        ),
-                        memberValue
-                    )
-                )
             );
-            /*
-                .find(j.MethodDefinition, {
-                    key: {
-                        type: "Identifier",
-                        name: "constructor",
-                    },
-                })
-                .forEach((path) => {
-                    const { body: constructorBody } = path.value.value.body;
-                    constructorBody.push(
-                        j.expressionStatement(
-                            j.assignmentExpression(
-                                "=",
-                                j.memberExpression(
-                                    j.thisExpression(),
-                                    j.identifier(memberName)
-                                ),
-                                j.literal("")
-                            )
-                        )
-                    );
-                });
-*/
+  
             j(path).remove();
         });
 
@@ -468,18 +323,6 @@ export const codemod = (code: string): string => {
 
             j(path).remove();
         });
-
-    /*const config = (root.get().value.program as Program).body.filter(
-        (n) =>
-            j(n).isOfType(j.VariableDeclaration) &&
-            j(n)
-                .find(j.VariableDeclarator)
-                .filter(
-                    (n) =>
-                        n.value.id.type === "Identifier" &&
-                        n.value.id.name === "config"
-                ).length > 0
-    );*/
 
     return root.toSource({});
 };
